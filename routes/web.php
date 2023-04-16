@@ -30,11 +30,11 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 
     Route::get('/role-register', 'App\Http\Controllers\Admin\RoleController@registered');
 
-    Route::get('/role-edit/{id}', 'App\Http\Controllers\Admin\DashboardController@registeredit');
+    Route::get('/role-edit/{id}', 'App\Http\Controllers\Admin\RoleController@registeredit');
 
-    Route::put('/role-register-update/{id}', 'App\Http\Controllers\Admin\DashboardController@registerupdate');
+    Route::put('/role-register-update/{id}', 'App\Http\Controllers\Admin\RoleController@registerupdate');
 
-    Route::delete('/role-delete/{id}', 'App\Http\Controllers\Admin\DashboardController@registerdelete');
+    Route::delete('/role-delete/{id}', 'App\Http\Controllers\Admin\RoleController@registerdelete');
 
     Route::get('/news','App\Http\Controllers\Admin\NewsController@index');
 
