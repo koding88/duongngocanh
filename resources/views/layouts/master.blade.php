@@ -70,12 +70,6 @@
               <p>Categories</p>
             </a>
           </li>
-          <li class="{{'brands' == request() -> path() ?'active':''}}">
-            <a href="/brands">
-              <i class="now-ui-icons shopping_tag-content"></i>
-              <p>Brands</p>
-            </a>
-          </li>
           <li class="{{'' == request() -> path() ?'active':''}}">
             <a href="#">
               <i class="now-ui-icons shopping_delivery-fast"></i>
@@ -130,10 +124,6 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
                 </a>
               </li>
               <li class="nav-item dropdown">
@@ -192,30 +182,6 @@
       
       <footer class="footer">
         <div class=" container-fluid ">
-          <nav>
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="http://presentation.creative-tim.com">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright" id="copyright">
-            &copy; <script>
-              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-          </div>
         </div>
       </footer>
     </div>
