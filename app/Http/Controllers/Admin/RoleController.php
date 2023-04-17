@@ -13,7 +13,7 @@ class RoleController extends Controller
         $users = User::all();
         return view('admin.register')->with('users', $users);
     }
-    
+
 
     public function registeredit(Request $request, $id)
     {
@@ -39,9 +39,9 @@ class RoleController extends Controller
     }
 
     public function create(array $data)
-{
-    return User::create([
-        'password' => bcrypt($data['password']),
-    ]);
-}
+    {
+        return User::create([
+            'password' => bcrypt($data['password']),
+        ]);
+    }
 }

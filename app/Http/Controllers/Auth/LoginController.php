@@ -40,12 +40,6 @@ class LoginController extends Controller
         }
     }
 
-    public function create(array $data)
-    {
-        return User::create([
-            'password' => bcrypt($data['password']),
-        ]);
-    }
     /**
      * Create a new controller instance.
      *

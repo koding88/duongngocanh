@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
     Route::get('/role-register', 'App\Http\Controllers\Admin\RoleController@registered');
 
