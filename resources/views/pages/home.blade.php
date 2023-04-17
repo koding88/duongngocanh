@@ -2,20 +2,6 @@
 
 @section('content')
 <main>
-    <!-- Search area
-    <div class="search-area">
-        <div class="main-content">
-            <div class="body">
-                <h3>Search For:</h3>
-                <input type="text" placeholder="Keywords" />
-                <button type="submit" class="btn">
-                    Search
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-        </div>
-    </div> -->
-
     <!-- Hero -->
     <div class="hero hero-bg">
         <div class="main-content">
@@ -25,10 +11,10 @@
                     <h1 class="heading">Stylish Seasonal Decor</h1>
                 </div>
                 <div class="hero-btn">
-                    <a href="" class="btn btn-hero-left"
-                        >Furniture Collection</a
-                    >
-                    <a href="" class="btn btn-hero-right">Contact Us</a>
+                    <a href="shop" class="btn btn-hero-left">
+                        Furniture Collection
+                    </a>
+                    <a href="contact" class="btn btn-hero-right">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -84,14 +70,7 @@
         <div class="main-content">
             <div class="row">
                 <div class="body">
-                    <h3 class="sub-heading">
-                        <span class="highlight">Our</span> Products
-                    </h3>
-                    <p class="desc">
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Aliquid, fuga quas itaque
-                        eveniet beatae optio.
-                    </p>
+                    @include('components.subheading', ['our' => 'Our'], ['subheading' => 'Product'])
                 </div>
             </div>
             <div class="product-list">
@@ -254,90 +233,8 @@
         </div>
     </div>
 
-    <!-- Founder -->
-    <div class="founder">
-        <div class="main-content">
-            <div class="founder-list autoplay">
-                <div class="founder-item">
-                    <div class="founder-avatar">
-                        <img
-                            src="https://randomuser.me/api/portraits/men/32.jpg"
-                            alt=""
-                            class="avatar"
-                        />
-                    </div>
-                    <div class="founder-info">
-                        <h3 class="founder-name">
-                            Duong Ngoc Anh
-                            <span>Local shop owner</span>
-                        </h3>
-                        <p class="desc">
-                            " Sed ut perspiciatis unde omnis iste natus
-                            error veritatis et quasi architecto beatae
-                            vitae dict eaque ipsa quae ab illo inventore
-                            Sed ut perspiciatis unde omnis iste natus
-                            error sit voluptatem accusantium "
-                        </p>
-                        <div class="quote-icon">
-                            <i class="fa-solid fa-quote-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="founder-item">
-                    <div class="founder-avatar">
-                        <img
-                            src="https://randomuser.me/api/portraits/men/97.jpg"
-                            alt=""
-                            class="avatar"
-                        />
-                    </div>
-                    <div class="founder-info">
-                        <h3 class="founder-name">
-                            Thai Van Chien
-                            <span>Local shop owner</span>
-                        </h3>
-                        <p class="desc">
-                            " Sed ut perspiciatis unde omnis iste natus
-                            error veritatis et quasi architecto beatae
-                            vitae dict eaque ipsa quae ab illo inventore
-                            Sed ut perspiciatis unde omnis iste natus
-                            error sit voluptatem accusantium "
-                        </p>
-                        <div class="quote-icon">
-                            <i class="fa-solid fa-quote-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="founder-item">
-                    <div class="founder-avatar">
-                        <img
-                            src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e"
-                            alt=""
-                            class="avatar"
-                        />
-                    </div>
-                    <div class="founder-info">
-                        <h3 class="founder-name">
-                            Ho Thi Quynh Nga
-                            <span>Local shop owner</span>
-                        </h3>
-                        <p class="desc">
-                            " Sed ut perspiciatis unde omnis iste natus
-                            error veritatis et quasi architecto beatae
-                            vitae dict eaque ipsa quae ab illo inventore
-                            Sed ut perspiciatis unde omnis iste natus
-                            error sit voluptatem accusantium "
-                        </p>
-                        <div class="quote-icon">
-                            <i class="fa-solid fa-quote-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{-- Founder --}}
+    @include('components.founder')
 
     <!-- About -->
     <div class="about">
@@ -371,46 +268,21 @@
                         veritatis minus, et labore minima mollitia qui
                         ducimus.
                     </p>
-                    <a href="#!" class="btn btn-about">Know More</a>
+                    <a href="about" class="btn btn-about">Know More</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Discount -->
-    <div class="discount">
-        <div class="main-content">
-            <div class="body">
-                <h3 class="title">
-                    December sale is on! with big
-                    <strong class="highlight">Discount...</strong>
-                </h3>
-                <div class="discount-info">
-                    <p class="desc">
-                        Sale! <br />
-                        Upto
-                    </p>
-                    <strong class="highlight">50%</strong>
-                    <p class="desc">off</p>
-                </div>
-                <a href="#!" class="btn btn-cart">Shop now</a>
-            </div>
-        </div>
-    </div>
+    {{-- Discount --}}
+    @include('components.discount')
 
     <!-- News -->
     <div class="news">
         <div class="main-content">
             <div class="row">
                 <div class="body">
-                    <h3 class="sub-heading">
-                        <span class="highlight">Our</span> News
-                    </h3>
-                    <p class="desc line-clamp line-2">
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Aliquid, fuga quas itaque
-                        eveniet beatae optio.
-                    </p>
+                    @include('components.subheading', ['our' => 'Our'], ['subheading' => 'News'])
                 </div>
             </div>
             <div class="row">
@@ -580,42 +452,7 @@
         </div>
     </div>
 
-    <!-- Brand -->
-    <div class="brands">
-        <div class="main-content">
-            <div class="list-brands autoplay-1">
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/1.png"
-                        alt=""
-                    />
-                </div>
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/2.png"
-                        alt=""
-                    />
-                </div>
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/3.png"
-                        alt=""
-                    />
-                </div>
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/4.png"
-                        alt=""
-                    />
-                </div>
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/5.png"
-                        alt=""
-                    />
-                </div>
-            </div>
-        </div>
-    </div>
+    {{-- Brands --}}
+    @include('components.brands')
 </main>
 @endsection
