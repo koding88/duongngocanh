@@ -14,7 +14,18 @@
         </h4>
         </div>
         <div class="card-body">
-            <form action="
+            <form action="">
+                <div class ="mb-3">
+                    <label>Title</label>
+                    <input type="text" name="title" class ="form-control"/>
+
+                </div>
+                <div class ="mb-3">
+                    <label>Content</label>
+                    <input type="text" name="title" class ="form-control"/>
+
+                </div>
+            </form>
             </div> 
       </div>
     </div>
