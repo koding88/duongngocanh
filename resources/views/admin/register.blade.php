@@ -36,7 +36,13 @@
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->phone }}</td>
                                         <td>{{ $row->email }}</td>
-                                        <td>{{ $row->usertype }}</td>
+                                        <td>
+                                            @if($row->usertype == 1)
+                                                Admin
+                                            @elseif($row->usertype == 0)
+                                                User
+                                            @endif
+                                        </td>
                                         <td><a href="/role-edit/{{ $row->id }}" class="btn btn-success">EDIT</a></td>
                                         <td>
                                             <form action="/role-delete/{{ $row->id }}" method="POST">
