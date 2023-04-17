@@ -70,7 +70,7 @@
         <div class="main-content">
             <div class="row">
                 <div class="body">
-                    @include('components.heading', ['our' => 'Our'], ['title' => 'Product'])
+                    @include('components.subheading', ['our' => 'Our'], ['subheading' => 'Product'])
                 </div>
             </div>
             <div class="product-list">
@@ -300,7 +300,7 @@
         <div class="main-content">
             <div class="row">
                 <div class="body">
-                    @include('components.heading', ['our' => 'Our'], ['title' => 'News'])
+                    @include('components.subheading', ['our' => 'Our'], ['subheading' => 'News'])
                 </div>
             </div>
             <div class="row">
