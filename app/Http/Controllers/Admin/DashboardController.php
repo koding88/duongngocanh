@@ -11,8 +11,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $totalUser = User::where('usertype', 'user')->count();
-        $totalAdmin = User::where('usertype', 'admin')->count();
+        $totalUser = User::where('usertype', '0')->count();
+        $totalAdmin = User::where('usertype', '1')->count();
 
         return view('admin.dashboard', ['totalUser' => $totalUser, 'totalAdmin' => $totalAdmin]);
 
