@@ -176,7 +176,7 @@ a {
 }
 
 .hero-bg {
-    background-image: url(../img/hero-bg.jpeg);
+    background-image: url(../images/hero-bg.jpeg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -325,7 +325,7 @@ a {
 }
 
 .features-about::after{
-    background-image: url(../img/hero-bg.jpeg);
+    background-image: url(../images/hero-bg.jpeg);
     position: absolute;
     right: 0;
     top: 0;
@@ -1003,7 +1003,7 @@ a {
 /* Discount */
 .discount {
     padding: 110px 0 115px;
-    background-image: url('../img/banner-discount.jpg');
+    background-image: url('../images/banner-discount.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -1052,18 +1052,6 @@ a {
     justify-content: center;
     flex-direction: column;
     margin-bottom: 80px;
-}
-
-.news .sub-heading::after {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    margin: 0 auto;
-    content: '';
-    width: 50px;
-    height: 2px;
-    background: var(--primary-color);
 }
 
 .news-list {
