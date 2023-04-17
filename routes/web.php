@@ -60,3 +60,7 @@ Route::get('/about', function () {
 Route::get('/news', function () {
     return view('pages.news');
 });
+
+Route::get('/shop', function () {
+    return view('pages.shop');
+});
