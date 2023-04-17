@@ -2,20 +2,6 @@
 
 @section('content')
 <main>
-    <!-- Search area
-    <div class="search-area">
-        <div class="main-content">
-            <div class="body">
-                <h3>Search For:</h3>
-                <input type="text" placeholder="Keywords" />
-                <button type="submit" class="btn">
-                    Search
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-        </div>
-    </div> -->
-
     <!-- Hero -->
     <div class="hero hero-bg">
         <div class="main-content">
@@ -25,10 +11,10 @@
                     <h1 class="heading">Stylish Seasonal Decor</h1>
                 </div>
                 <div class="hero-btn">
-                    <a href="" class="btn btn-hero-left"
-                        >Furniture Collection</a
-                    >
-                    <a href="" class="btn btn-hero-right">Contact Us</a>
+                    <a href="shop" class="btn btn-hero-left">
+                        Furniture Collection
+                    </a>
+                    <a href="contact" class="btn btn-hero-right">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -580,42 +566,6 @@
         </div>
     </div>
 
-    <!-- Brand -->
-    <div class="brands">
-        <div class="main-content">
-            <div class="list-brands autoplay-1">
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/1.png"
-                        alt=""
-                    />
-                </div>
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/2.png"
-                        alt=""
-                    />
-                </div>
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/3.png"
-                        alt=""
-                    />
-                </div>
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/4.png"
-                        alt=""
-                    />
-                </div>
-                <div class="item">
-                    <img
-                        src="https://technext.github.io/fruitkha/assets/img/company-logos/5.png"
-                        alt=""
-                    />
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('components.brands')
 </main>
 @endsection
