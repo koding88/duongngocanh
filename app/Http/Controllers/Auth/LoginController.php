@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -30,16 +33,19 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo()
     {
-        if(Auth::user()->usertype == 'admin')
-        {
+        if (Auth::user()->usertype == 'admin') {
             return 'dashboard';
-        }
-        else
-        {
-            return 'home'; 
+        } else {
+            return 'index';
         }
     }
 
+    public function create(array $data)
+    {
+        return User::create([
+            'password' => bcrypt($data['password']),
+        ]);
+    }
     /**
      * Create a new controller instance.
      *
