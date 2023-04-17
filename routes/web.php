@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 
     Route::delete('/role-delete/{id}', 'App\Http\Controllers\Admin\RoleController@registerdelete');
 
-    Route::get('/news','App\Http\Controllers\Admin\NewsController@index');
+    // Route::get('/news','App\Http\Controllers\Admin\NewsController@index');
 
 
     // Route::get('/brands','App\Http\Controllers\Admin\BrandController@index');
@@ -37,6 +37,11 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
     // Route::post('/brands-update/{id}', 'App\Http\Controllers\Admin\BrandController@brandupdate');
 
     // Route::delete('/brands-delete/{id}', 'App\Http\Controllers\Admin\BrandController@branddelete');
+
+
+    // News Router
+    Route::get('news',[App\Http\Controllers\Admin\NewsController::class,'index']);
+    Route::get('news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
 
 
 });
