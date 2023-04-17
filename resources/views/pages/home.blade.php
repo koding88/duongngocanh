@@ -70,14 +70,7 @@
         <div class="main-content">
             <div class="row">
                 <div class="body">
-                    <h3 class="sub-heading">
-                        <span class="highlight">Our</span> Products
-                    </h3>
-                    <p class="desc">
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Aliquid, fuga quas itaque
-                        eveniet beatae optio.
-                    </p>
+                    @include('components.heading', ['our' => 'Our'], ['title' => 'Product'])
                 </div>
             </div>
             <div class="product-list">
@@ -240,90 +233,8 @@
         </div>
     </div>
 
-    <!-- Founder -->
-    <div class="founder">
-        <div class="main-content">
-            <div class="founder-list autoplay">
-                <div class="founder-item">
-                    <div class="founder-avatar">
-                        <img
-                            src="https://randomuser.me/api/portraits/men/32.jpg"
-                            alt=""
-                            class="avatar"
-                        />
-                    </div>
-                    <div class="founder-info">
-                        <h3 class="founder-name">
-                            Duong Ngoc Anh
-                            <span>Local shop owner</span>
-                        </h3>
-                        <p class="desc">
-                            " Sed ut perspiciatis unde omnis iste natus
-                            error veritatis et quasi architecto beatae
-                            vitae dict eaque ipsa quae ab illo inventore
-                            Sed ut perspiciatis unde omnis iste natus
-                            error sit voluptatem accusantium "
-                        </p>
-                        <div class="quote-icon">
-                            <i class="fa-solid fa-quote-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="founder-item">
-                    <div class="founder-avatar">
-                        <img
-                            src="https://randomuser.me/api/portraits/men/97.jpg"
-                            alt=""
-                            class="avatar"
-                        />
-                    </div>
-                    <div class="founder-info">
-                        <h3 class="founder-name">
-                            Thai Van Chien
-                            <span>Local shop owner</span>
-                        </h3>
-                        <p class="desc">
-                            " Sed ut perspiciatis unde omnis iste natus
-                            error veritatis et quasi architecto beatae
-                            vitae dict eaque ipsa quae ab illo inventore
-                            Sed ut perspiciatis unde omnis iste natus
-                            error sit voluptatem accusantium "
-                        </p>
-                        <div class="quote-icon">
-                            <i class="fa-solid fa-quote-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="founder-item">
-                    <div class="founder-avatar">
-                        <img
-                            src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e"
-                            alt=""
-                            class="avatar"
-                        />
-                    </div>
-                    <div class="founder-info">
-                        <h3 class="founder-name">
-                            Ho Thi Quynh Nga
-                            <span>Local shop owner</span>
-                        </h3>
-                        <p class="desc">
-                            " Sed ut perspiciatis unde omnis iste natus
-                            error veritatis et quasi architecto beatae
-                            vitae dict eaque ipsa quae ab illo inventore
-                            Sed ut perspiciatis unde omnis iste natus
-                            error sit voluptatem accusantium "
-                        </p>
-                        <div class="quote-icon">
-                            <i class="fa-solid fa-quote-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{-- Founder --}}
+    @include('components.founder')
 
     <!-- About -->
     <div class="about">
@@ -357,7 +268,7 @@
                         veritatis minus, et labore minima mollitia qui
                         ducimus.
                     </p>
-                    <a href="#!" class="btn btn-about">Know More</a>
+                    <a href="about" class="btn btn-about">Know More</a>
                 </div>
             </div>
         </div>
@@ -389,14 +300,7 @@
         <div class="main-content">
             <div class="row">
                 <div class="body">
-                    <h3 class="sub-heading">
-                        <span class="highlight">Our</span> News
-                    </h3>
-                    <p class="desc line-clamp line-2">
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit. Aliquid, fuga quas itaque
-                        eveniet beatae optio.
-                    </p>
+                    @include('components.heading', ['our' => 'Our'], ['title' => 'News'])
                 </div>
             </div>
             <div class="row">
@@ -566,6 +470,7 @@
         </div>
     </div>
 
+    {{-- Brands --}}
     @include('components.brands')
 </main>
 @endsection
