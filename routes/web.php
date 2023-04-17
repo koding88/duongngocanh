@@ -40,8 +40,8 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 
 
     // News Router
-    Route::get('news',[App\Http\Controllers\Admin\NewsController::class,'index']);
-    Route::get('news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
+    Route::get('admin/news',[App\Http\Controllers\Admin\NewsController::class,'index']);
+    Route::get('admin/news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
 
 
 });

@@ -11,10 +11,15 @@
         <div class="card-header">
            <h4>NEWS
             <a href="{{ url ('admin/news/create')}}" class="btn btn-primary float-end"> Add News </a>
+
+
         </h4>
         </div>
         <div class="card-body">
             <form action="">
+
+                
+
                 <div class ="mb-3">
                     <label>Title</label>
                     <input type="text" name="title" class ="form-control"/>
