@@ -542,6 +542,11 @@ a {
     margin: 0 6px;
 }
 
+.shop .pagination li a.active{
+    color: #fff;
+    background: var(--primary-color);
+}
+
 .shop .pagination li:hover a{
     background-color: var(--primary-color);
     color: #fff;
