@@ -77,7 +77,7 @@
             </a>
           </li>
           <li class="{{'news' == request() -> path() ?'active':''}}">
-            <a href="/news">
+            <a href="/admin/news">
               <i class="now-ui-icons education_paper"></i>
               <p>News</p>
             </a>

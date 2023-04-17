@@ -40,9 +40,20 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 
 
     // News Router
-    Route::get('admin/news',[App\Http\Controllers\Admin\NewsController::class,'index']);
-    Route::get('admin/news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
+    // Route::get('admin/news',[App\Http\Controllers\Admin\NewsController::class,'index']);
+    // Route::post('admin/add-news',[App\Http\Controllers\Admin\NewsController::class,'store']);
+    // Route::get('admin/news-edit/{id}',[App\Http\Controllers\Admin\NewsController::class,'newscreate']);
+    // Route::post('admin/news-update/{id}',[App\Http\Controllers\Admin\NewsController::class,'newsupdate']);
+    // Route::delete('admin/news-delete/{id}',[App\Http\Controllers\Admin\NewsController::class,'newsdelete']);
+    Route::get('admin/news','App\Http\Controllers\Admin\NewsController@index');
 
+    Route::post('admin/add-news','App\Http\Controllers\Admin\NewsController@store');
+
+    Route::get('admin/news-edit/{id}', 'App\Http\Controllers\Admin\NewsController@newsedit');
+
+    Route::post('admin/news-update/{id}', 'App\Http\Controllers\Admin\NewsController@newsupdate');
+
+    Route::delete('admin/news-delete/{id}', 'App\Http\Controllers\Admin\NewsController@newsdelete');
 
 });
 
