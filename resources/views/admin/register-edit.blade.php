@@ -24,8 +24,8 @@
                     <div class="form-group">
                         <label class="form-select">Give Role</label>
                         <select name="usertype" class="form-control" aria-label="Default select example">
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
+                            <option value="1">Admin</option>
+                            <option value="0">User</option>
                           </select>
                     </div>
                     <button type="submit" class="btn btn-success">Update</button>
