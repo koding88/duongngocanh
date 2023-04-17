@@ -14,7 +14,7 @@
                 <h2 class="widget-title">Get in Touch</h2>
                 <ul>
                     <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-                    <li>support@fruitkha.com</li>
+                    <li>support@meme.com</li>
                     <li>+00 111 222 3333</li>
                 </ul>
             </div>
@@ -22,19 +22,19 @@
                 <h2 class="widget-title">Pages</h2>
                 <ul>
                     <li>
-                        <a href="#!">Home</a>
+                        <a href="home">Home</a>
                     </li>
                     <li>
-                        <a href="#!">About</a>
+                        <a href="about">About</a>
                     </li>
                     <li>
-                        <a href="#!">News</a>
+                        <a href="news">News</a>
                     </li>
                     <li>
-                        <a href="#!">Shop</a>
+                        <a href="shop">Shop</a>
                     </li>
                     <li>
-                        <a href="#!">Contact</a>
+                        <a href="contact">Contact</a>
                     </li>
                 </ul>
             </div>

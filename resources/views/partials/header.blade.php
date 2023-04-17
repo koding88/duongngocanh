@@ -10,19 +10,19 @@
             <nav class="nav">
                 <ul>
                     <li class="{{ request()-> is('index') ? 'active' : '' }}">
-                        <a href="/index">Home</a>
+                        <a href="index">Home</a>
                     </li>
                     <li {{ request()-> is('about') ? 'active' : '' }}>
-                        <a href="./about.html">About</a>
+                        <a href="about">About</a>
                     </li>
                     <li {{ request()-> is('news') ? 'active' : '' }}>
-                        <a href="./news.html">News</a>
+                        <a href="news">News</a>
                     </li>
                     <li {{ request()-> is('shop') ? 'active' : '' }}>
-                        <a href="./shop.html">Shop</a>
+                        <a href="shop">Shop</a>
                     </li>
                     <li {{ request()-> is('contact') ? 'active' : '' }}>
-                        <a href="">Contact</a>
+                        <a href="contact">Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -32,7 +32,7 @@
                 <a href="" class="icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
-                <a href="./checkout.html" class="icon">
+                <a href="#!" class="icon">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
                 <a href="home" class="icon">
