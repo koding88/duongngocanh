@@ -25,8 +25,6 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 
     Route::delete('/role-delete/{id}', 'App\Http\Controllers\Admin\RoleController@registerdelete');
 
-    Route::get('/news','App\Http\Controllers\Admin\NewsController@index');
-
 
     // Route::get('/brands','App\Http\Controllers\Admin\BrandController@index');
 
