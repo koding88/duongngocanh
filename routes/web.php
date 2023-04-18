@@ -41,11 +41,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     // Route::delete('/brands-delete/{id}', 'App\Http\Controllers\Admin\BrandController@branddelete');
 
 
-    // News Router
-    Route::get('admin/news',[App\Http\Controllers\Admin\NewsController::class,'index']);
-    Route::get('admin/news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
-
-
+    
     // Product
     Route::resource('admin/products', ProductsController::class);
 });
