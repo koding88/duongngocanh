@@ -9,19 +9,19 @@
             <!-- Nav -->
             <nav class="nav">
                 <ul>
-                    <li class="{{ request()-> is('index') ? 'active' : '' }}">
+                    <li class="{{ request()->is('index') ? 'active' : '' }}">
                         <a href="index">Home</a>
                     </li>
-                    <li {{ request()-> is('about') ? 'active' : '' }}>
+                    <li class="{{ request()->is('about') ? 'active' : '' }}">
                         <a href="about">About</a>
                     </li>
-                    <li {{ request()-> is('news') ? 'active' : '' }}>
+                    <li class="{{ request()->is('news') ? 'active' : '' }}">
                         <a href="news">News</a>
                     </li>
-                    <li {{ request()-> is('shop') ? 'active' : '' }}>
+                    <li class="{{ request()->is('shop') ? 'active' : '' }}">
                         <a href="shop">Shop</a>
                     </li>
-                    <li {{ request()-> is('contact') ? 'active' : '' }}>
+                    <li class="{{ request()->is('contact') ? 'active' : '' }}">
                         <a href="contact">Contact</a>
                     </li>
                 </ul>
@@ -29,10 +29,10 @@
 
             <!-- Action -->
             <div class="action">
-                <a href="" class="icon">
+                <a href="search" class="icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
-                <a href="#!" class="icon">
+                <a href="cart" class="icon">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
                 <a href="home" class="icon">

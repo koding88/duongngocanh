@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +15,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::group(['middleware' => ['auth', 'admin']], function(){
+Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
@@ -40,9 +42,14 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 
 
     // News Router
-    Route::get('admin/news',[App\Http\Controllers\Admin\NewsController::class,'index']);
-    Route::get('admin/news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
+    Route::get('admin/news', [App\Http\Controllers\Admin\NewsController::class, 'index']);
+    Route::get('admin/news/create', [App\Http\Controllers\Admin\NewsController::class, 'create']);
 
+    // Category
+    Route::resource('admin/categories', CategoryController::class);
+
+    // Product
+    Route::resource('admin/products', ProductsController::class);
 });
 
 
