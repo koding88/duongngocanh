@@ -43,7 +43,6 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::get('news',[App\Http\Controllers\Admin\NewsController::class,'index']);
     Route::get('news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
 
-
 });
 
 
