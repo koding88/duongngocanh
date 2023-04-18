@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,9 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
     // News Router
     Route::get('admin/news',[App\Http\Controllers\Admin\NewsController::class,'index']);
     Route::get('admin/news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
+
+    // Product
+    Route::resource('admin/product', ProductsController::class);
 
 });
 
