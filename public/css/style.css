@@ -1138,7 +1138,7 @@ a {
     border-radius: 5px;
 }
 
-.news-article .img{
+.news-article img{
     width: 730px;
     height: 450px;
     object-fit: cover;
