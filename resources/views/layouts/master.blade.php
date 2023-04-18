@@ -7,33 +7,22 @@
   <link rel="icon" type="image/png" href="../assets/img/logo.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    @yield('title')
+     @yield('title')
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<<<<<<< HEAD
-  <!-- CSS Files -->
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
-=======
   <!-- Link CSS -->
   <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
   <link href="{{ asset('assets/css/now-ui-dashboard.css?v=1.5.0') }}" rel="stylesheet" />
->>>>>>> 4e321f2ad22a56cb92f7bbf8d1b32dc9bc53ab24
 </head>
 
 <body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="blue">
-      <!--
+    <div class="wrapper ">
+        <div class="sidebar" data-color="blue">
+            <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
@@ -47,19 +36,19 @@
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
           <li class="{{ 'dashboard' == request() -> path() ?'active':'' }}">
-            <a href="/dashboard">
+            <a href="{{ url('dashboard') }}">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{'' == request() -> path() ?'active':''}}">
-            <a href="#">
+          <li class="{{'admin/products' == request() -> path() ?'active':''}}">
+            <a href="{{ url('admin/products') }}">
               <i class="now-ui-icons shopping_shop"></i>
               <p>Products</p>
             </a>
           </li>
-          <li class="{{'' == request() -> path() ?'active':''}}">
-            <a href="#">
+          <li class="{{'admin/categories' == request() -> path() ?'active':''}}">
+            <a href="{{ url('admin/categories') }}">
               <i class="now-ui-icons business_briefcase-24"></i>
               <p>Categories</p>
             </a>
@@ -71,7 +60,7 @@
             </a>
           </li>
           <li class="{{'news' == request() -> path() ?'active':''}}">
-            <a href="/admin/news">
+            <a href="/news">
               <i class="now-ui-icons education_paper"></i>
               <p>News</p>
             </a>
@@ -111,19 +100,20 @@
                     {{ Auth::user()->name }}
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-              {{-- <li class="nav-item dropdown">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                            {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="now-ui-icons location_world"></i>
                   <p>
@@ -136,7 +126,7 @@
                   <a class="dropdown-item" href="#">Something else here</a>
                 </div>
               </li> --}}
-              {{-- <li class="nav-item">
+                            {{-- <li class="nav-item">
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>
@@ -144,43 +134,43 @@
                   </p>
                 </a>
               </li> --}}
-            </ul>
-          </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+
+
+            <div class="panel-header panel-header-sm">
+            </div>
+            <div class="content">
+
+                @yield('content')
+
+            </div>
+
+
+            <footer class="footer">
+                <div class=" container-fluid ">
+                </div>
+            </footer>
         </div>
-      </nav>
-      <!-- End Navbar -->
-
-
-      <div class="panel-header panel-header-sm">
-      </div>
-      <div class="content">
-
-        @yield('content')
-
-      </div>
-
-      
-      <footer class="footer">
-        <div class=" container-fluid ">
-        </div>
-      </footer>
     </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-  <script src="../assets/demo/demo.js"></script>
+    <!--   Core JS Files   -->
+    <script src="../assets/js/core/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chart JS -->
+    <script src="../assets/js/plugins/chartjs.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+    <script src="../assets/demo/demo.js"></script>
 </body>
 
 </html>

@@ -11,10 +11,10 @@
                         <h1 class="heading">Stylish Seasonal Decor</h1>
                     </div>
                     <div class="hero-btn">
-                        <a href="shop" class="btn btn-hero-left">
+                        <a href="{{ url('shop') }}" class="btn btn-hero-left">
                             Furniture Collection
                         </a>
-                        <a href="contact" class="btn btn-hero-right">Contact Us</a>
+                        <a href="{{ url('contact') }}" class="btn btn-hero-right">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -176,7 +176,7 @@
                             veritatis minus, et labore minima mollitia qui
                             ducimus.
                         </p>
-                        <a href="about" class="btn btn-about">Know More</a>
+                        <a href="{{ url('about') }}" class="btn btn-about">Know More</a>
                     </div>
                 </div>
             </div>
@@ -201,7 +201,7 @@
                 </div>
                 <div class="row">
                     <div class="news-more">
-                        <a href="news" class="btn btn-news-desc">More news</a>
+                        <a href="{{ url('news') }}" class="btn btn-news-desc">More news</a>
                     </div>
                 </div>
             </div>

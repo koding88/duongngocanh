@@ -51,8 +51,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/index', function () {
     return view('pages.home');
-});
+    });
 
 Route::get('/about', function () {
     return view('pages.about');
-});
+    });

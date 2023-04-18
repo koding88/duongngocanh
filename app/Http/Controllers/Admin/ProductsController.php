@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -24,7 +25,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        // insert new product
+        $categories = Category::all();
+        return view('admin.products.create')->with('categories', $categories);
     }
 
     /**
@@ -32,7 +35,33 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:products',
+            'quantity' => 'required|integer|min:0|max:200',
+            'price' => 'required',
+            'description' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        // client img name and server img must be diff
+        $generatedImageName = 'image' . time() . '-'
+            . $request->name . '.'
+            . $request->image->extension();
+
+        // move to a folder
+        $request->image->move(public_path('images'), $generatedImageName);
+
+        $products = Product::create([
+            'name' => $request->input('name'),
+            'quantity' => $request->input('quantity'),
+            'price' => $request->input('price'),
+            'description' => $request->input('description'),
+            'category_id' => $request->input('category_id'),
+            'image_path' => $generatedImageName
+        ]);
+        // Save to database
+        $products->save();
+        return redirect('admin/products');
     }
 
     /**
@@ -40,7 +69,10 @@ class ProductsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $products = Product::find($id);
+        $category = Category::find($products->category_id);
+        $products->category = $category;
+        return view('admin.products.show')->with('products', $products);
     }
 
     /**
@@ -48,7 +80,9 @@ class ProductsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $products = Product::find($id);
+        $categories = Category::all();
+        return view('admin.products.edit', compact('products', 'categories'));
     }
 
     /**
@@ -56,7 +90,25 @@ class ProductsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $products = Product::findOrFail($id);
+
+        // Update image if a new one is uploaded
+        if ($request->hasFile('image')) {
+            $generatedImageName = 'image' . time() . '-' . $request->name . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $generatedImageName);
+            $products->image_path = $generatedImageName;
+        }
+
+        // Update other product fields
+        $products->name = $request->input('name');
+        $products->quantity = $request->input('quantity');
+        $products->price = $request->input('price');
+        $products->description = $request->input('description');
+        $products->category_id = $request->input('category_id');
+
+        // Save changes
+        $products->save();
+        return redirect('admin/products');
     }
 
     /**
@@ -64,6 +116,8 @@ class ProductsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $products = Product::find($id);
+        $products->delete();
+        return redirect('admin/products');
     }
 }
