@@ -77,8 +77,8 @@
                             </tbody>
                         </table>
                         <div class="cart-buttons">
-                            <a href="cart" class="btn btn-cart">Update Cart</a>
-                            <a href="checkout" class="btn btn-cart">Check Out</a>
+                            <a href="{{ url('cart') }}" class="btn btn-cart">Update Cart</a>
+                            <a href="{{ url('checkout') }}" class="btn btn-cart">Check Out</a>
                         </div>
                     </div>
                 </div>
