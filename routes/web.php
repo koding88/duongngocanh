@@ -77,6 +77,10 @@ Route::get('/checkout', function () {
     return view('pages.checkout');
 });
 
+Route::get('/product/detail', function () {
+    return view('pages.detail_product');
+});
+
 Route::get('/news/detail', function () {
     return view('pages.detail_news');
 });
