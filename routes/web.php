@@ -39,6 +39,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     // Product
     Route::resource('admin/products', ProductsController::class);
+    
+    // Categories
+    Route::resource('admin/categories', CategoryController::class);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

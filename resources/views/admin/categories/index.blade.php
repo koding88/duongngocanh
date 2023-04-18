@@ -30,7 +30,7 @@
                                         <tr>
                                             <th scope="row">{{ $category->id }}</th>
                                             <th>{{ $category->name }}</th>
-                                            <td>
+                                            <td class="custom-flex">
                                                 <a href="categories/{{ $category->id }}" class="btn btn-info btn-sm">
                                                     Detail
                                                 </a>
