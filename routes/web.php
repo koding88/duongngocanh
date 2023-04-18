@@ -40,8 +40,8 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 
 
     // News Router
-    Route::get('news',[App\Http\Controllers\Admin\NewsController::class,'index']);
-    Route::get('news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
+    Route::get('admin/news',[App\Http\Controllers\Admin\NewsController::class,'index']);
+    Route::get('admin/news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
 
 });
 
@@ -54,4 +54,32 @@ Route::get('/index', function () {
 
 Route::get('/about', function () {
     return view('pages.about');
+});
+
+Route::get('/news', function () {
+    return view('pages.news');
+});
+
+Route::get('/shop', function () {
+    return view('pages.shop');
+});
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+});
+
+Route::get('/cart', function () {
+    return view('pages.cart');
+});
+
+Route::get('/checkout', function () {
+    return view('pages.checkout');
+});
+
+Route::get('/product/detail', function () {
+    return view('pages.detail_product');
+});
+
+Route::get('/news/detail', function () {
+    return view('pages.detail_news');
 });
