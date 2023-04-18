@@ -31,7 +31,7 @@
                                             <th scope="row">{{ $category->id }}</th>
                                             <th>{{ $category->name }}</th>
                                             <td>
-                                                <a href="">
+                                                <a href="{{ url('/admin/categories/' . $category  ->id) }}">
                                                     <button class="btn btn-info btn-sm">Detail</button>
                                                 </a>
 
