@@ -41,13 +41,13 @@
             </a>
           </li>
           <li class="{{'' == request() -> path() ?'active':''}}">
-            <a href="#">
+            <a href="admin/products">
               <i class="now-ui-icons shopping_shop"></i>
               <p>Products</p>
             </a>
           </li>
           <li class="{{'' == request() -> path() ?'active':''}}">
-            <a href="#">
+            <a href="admin/categories">
               <i class="now-ui-icons business_briefcase-24"></i>
               <p>Categories</p>
             </a>
