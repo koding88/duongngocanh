@@ -52,18 +52,7 @@ class NewsController extends Controller
 
     public function update(Request $request, $id)
     {
-       
-        $news = News::find($id);
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = time() . "." . $image->getClientOriginalExtension();
-            $image->move('images/news/', $filename);
-            $news->image = $filename;
-        }
-        $news->title = $request->input('title');
-        $news->contents = $request->input('contents');
-        $news->update();
-        return redirect('admin/news')->with('status', 'Updated Successfully!');
+        return view ('admin.news.create');
     }
 
     public function delete($id)
