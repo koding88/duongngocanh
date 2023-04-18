@@ -68,3 +68,7 @@ Route::get('/shop', function () {
 Route::get('/contact', function () {
     return view('pages.contact');
 });
+
+Route::get('/cart', function () {
+    return view('pages.cart');
+});
