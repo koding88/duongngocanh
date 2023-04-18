@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <div class="card-body">
                         <h1 style="font-weight: 500; margin-bottom: 15px;">PRODUCT</h1>
-                        <a href="{{ url('/student/create') }}" class="btn btn-success btn-lg">
+                        <a href="{{ url('admin/products/create') }}" class="btn btn-success btn-lg">
                             <i class="bi bi-plus-circle"></i>
                             Create new
                         </a>
@@ -35,31 +35,30 @@
                                         <tr>
                                             <th scope="row">{{ $product->id }}</th>
                                             <th>
-                                                <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                                                    alt="" width="50px" height="50px" style="object-fit: cover">
+                                                <img src="{{ asset('images/' . $product->image_path) }}" alt=""
+                                                    width="50px" height="50px" style="object-fit: cover">
                                             </th>
                                             <th>{{ $product->name }}</th>
                                             <th>Category</th>
                                             <th>{{ $product->description }}</th>
                                             <th>{{ $product->quantity }}</th>
                                             <th>{{ $product->price }}</th>
-                                            <td>
-                                                <a href="">
+                                            <td class="custom-flex">
+                                                <a href="products/{{ $product->id }}">
                                                     <button class="btn btn-info btn-sm">Detail</button>
                                                 </a>
 
-                                                <a href="">
+                                                <a href="products/{{ $product->id }}/edit">
                                                     <button class="btn btn-warning btn-sm">
                                                         <i class="bi bi-pencil-square"></i>
                                                         Edit
                                                     </button>
                                                 </a>
 
-                                                <form method="POST" style="display:inline">
-                                                    {{ method_field('DELETE') }}
-                                                    {{ csrf_field() }}
-                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                        onclick="return confirm("Confirm delete?")">
+                                                <form action="/admin/products/{{ $product->id }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">
                                                         <i class="bi bi-trash"></i>
                                                         Delete
                                                     </button>

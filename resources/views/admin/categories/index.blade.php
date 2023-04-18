@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <div class="card-body">
                         <h1 style="font-weight: 500; margin-bottom: 15px;">CATEGORY</h1>
-                        <a href="{{ url('/admin/categories/create') }}" class="btn btn-success btn-lg">
+                        <a href="/admin/categories/create" class="btn btn-success btn-lg">
                             <i class="bi bi-plus-circle"></i>
                             Create new
                         </a>
@@ -31,22 +31,19 @@
                                             <th scope="row">{{ $category->id }}</th>
                                             <th>{{ $category->name }}</th>
                                             <td>
-                                                <a href="">
-                                                    <button class="btn btn-info btn-sm">Detail</button>
+                                                <a href="categories/{{ $category->id }}" class="btn btn-info btn-sm">
+                                                    Detail
                                                 </a>
 
-                                                <a href="">
-                                                    <button class="btn btn-warning btn-sm">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                        Edit
-                                                    </button>
-                                                </a>
+                                                <a href="categories/{{ $category->id }}/edit"
+                                                    class="btn btn-warning btn-sm">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                    Edit</a>
 
-                                                <form method="POST" style="display:inline">
-                                                    {{ method_field('DELETE') }}
-                                                    {{ csrf_field() }}
-                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                        onclick="return confirm("Confirm delete?")">
+                                                <form action="categories/{{ $category->id }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">
                                                         <i class="bi bi-trash"></i>
                                                         Delete
                                                     </button>

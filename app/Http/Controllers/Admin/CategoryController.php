@@ -25,8 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.categories.create')->with('categories', $categories);
+        return view('admin.categories.create');
     }
 
     /**
@@ -34,7 +33,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Category::create($input);
+        return redirect('admin/categories')->with('msg', 'Category Added!');
     }
 
     /**
@@ -42,7 +43,8 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $categories = Category::find($id);
+        return view('admin.categories.show')->with('categories', $categories);
     }
 
     /**
@@ -50,7 +52,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories = Category::find($id);
+        return view('admin.categories.edit')->with('categories', $categories);
     }
 
     /**
@@ -58,7 +61,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::find($id);
+        $input = $request->all();
+        $category->update($input);
+        return redirect('/')->with('msg', 'Category edit success!');
     }
 
     /**
@@ -66,6 +72,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categories = Category::find($id);
+        $categories->delete();
+        return redirect('admin/categories')->with('msg', 'Category deleteted success!');
     }
 }
