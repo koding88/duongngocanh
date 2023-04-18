@@ -29,10 +29,10 @@
 
             <!-- Action -->
             <div class="action">
-                <a href="" class="icon">
+                <a href="search" class="icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
-                <a href="#!" class="icon">
+                <a href="cart" class="icon">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
                 <a href="home" class="icon">
