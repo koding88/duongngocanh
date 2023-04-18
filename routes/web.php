@@ -64,3 +64,7 @@ Route::get('/news', function () {
 Route::get('/shop', function () {
     return view('pages.shop');
 });
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+});

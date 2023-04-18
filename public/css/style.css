@@ -78,6 +78,18 @@ a {
     padding-bottom: 15px;
 }
 
+.sub-heading::after {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0 auto;
+    content: '';
+    width: 50px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
 .line-clamp {
     display: -webkit-box;
     -webkit-line-clamp: var(--line-clamp, 3);
@@ -273,8 +285,6 @@ a {
     margin-top: 20px;
 }
 
-
-
 /* Features */
 .features {
     padding: 80px 0;
@@ -376,24 +386,6 @@ a {
     justify-content: center;
     flex-direction: column;
     margin-bottom: 80px;
-}
-
-.team .sub-heading{
-    font-size: 4rem;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.team .sub-heading::after{
-    position: absolute;
-    content: '';
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    width: 50px;
-    height: 2px;
-    background-color: var(--primary-color);
-    margin: 0 auto;
 }
 
 .team .body .desc{
@@ -563,18 +555,6 @@ a {
     justify-content: center;
     flex-direction: column;
     padding-bottom: 80px;
-}
-
-.product .sub-heading::after {
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    margin: 0 auto;
-    content: '';
-    width: 50px;
-    height: 2px;
-    background: var(--primary-color);
 }
 
 .product .sub-heading span {
@@ -1459,6 +1439,8 @@ table.order-details tbody td {
 
 .contact .form-title h2 {
     font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 18px;
 }
 
 .contact .form-title p {
@@ -1586,7 +1568,6 @@ table.order-details tbody td {
 .footer .widget-about {
     flex: 1;
 }
-
 
 .widget-git ul li,
 .footer .widget-about .desc {
