@@ -72,3 +72,7 @@ Route::get('/contact', function () {
 Route::get('/cart', function () {
     return view('pages.cart');
 });
+
+Route::get('/checkout', function () {
+    return view('pages.checkout');
+});
