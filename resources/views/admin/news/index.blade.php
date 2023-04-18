@@ -6,11 +6,11 @@
 
 @section('content')
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+       <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">News/h1>
+                <div class="modal-header"> 
+                     <h1 class="modal-title fs-5" id="exampleModalLabel">News</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="/add-news" method="POST" enctype="multipart/form-data">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Contents</label>
-                            <textarea type="text" name="contents" class="form-control" id="recipient-name">
+                            <textarea name="contents" rows ='6' class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -34,41 +34,42 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
+            </div> 
+         </div>
+    </div> 
 
     <div class="row">
         <div class="col-md-12">
             @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
+                <div class="alert alert-success">
+                    {{ session('status')}}
                 </div>
             @endif
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">News
-                        <button class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <a href ="{{url('admin/news/add')}}" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#myModal">
                             ADD
-                        </button>
+                        </a>
                     </h4>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table table-bordered table-striped">
                         <table class="table">
                             <thead class=" text-primary">
-                                <th>ID</th>
-                                <th>Image</th>
-                                <th>Title</th>
-                                <th>Contents</th>
-                                <th>EDIT</th>
-                                <th>DELETE</th>
+                                <th width="5%">ID</th>
+                                <th width="15%">Image</th>
+                                <th width="20%">Title</th>
+                                <th width="40%">Contents</th>
+                                <th width="10%">EDIT</th>
+                                <th width="5%">DELETE</th>
                             </thead>
                             <tbody>
-                                @foreach ($news as $row)
+                                 @foreach ($news as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td><img src="public/images/news/{{ $row->image }}" class="img-thumbnail"></td>
+                                    <td><img src="/images/news/{{ $row->image }}" class="img-thumbnail" width="40%"
+                                        height="150px"></td>
                                     <td>{{ $row->title }}</td>
                                     <td>{{ $row->contents }}</td>
                                     <td>
