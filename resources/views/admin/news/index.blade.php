@@ -29,7 +29,7 @@
     @foreach ($news as $new)
     <tr>
         <th scope="row">{{ $new->id }}</th>
-        <td><img src="/images/news/{{$new->image}}" width="200px"></td>
+        <td><img src="/public/images/news/{{$new->image}}" width="200px"></td>
         <td>{{$new->title}}</td>
         <td>{{$new->content}}</td>
         <td class="custom-flex">

@@ -42,7 +42,7 @@ class NewsController extends Controller
             ]);
             $input = $request->all();
             if ($image = $request->file('image')) {
-            $destinationPath = '/images/news/';
+            $destinationPath = '/public/images/news';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
@@ -81,7 +81,7 @@ class NewsController extends Controller
             ]);
             $input = $request->all();
             if ($image = $request->file('image')) {
-            $destinationPath = '/images/news/';
+            $destinationPath = '/public/images/news';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
