@@ -39,7 +39,7 @@
                                                     width="50px" height="50px" style="object-fit: cover">
                                             </th>
                                             <th>{{ $product->name }}</th>
-                                            <th>Category</th>
+                                            <th>{{ $product->category->name }}</th>
                                             <th>{{ $product->description }}</th>
                                             <th>{{ $product->quantity }}</th>
                                             <th>{{ $product->price }}</th>
