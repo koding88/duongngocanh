@@ -19,7 +19,8 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group">
                                 <strong>Image:</strong>
-                                <img src="/public/images/news/{{$news->image}}" width="250px">
+                                <img src="{{ asset('images/' . $news->image_path) }}" alt=""
+                                                    height="250px" style="object-fit: cover">
                             </div>
                         </div>                        
                             <div class="row">
