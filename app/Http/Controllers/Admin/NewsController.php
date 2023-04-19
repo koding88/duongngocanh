@@ -43,7 +43,7 @@ class NewsController extends Controller
             ]);
             $input = $request->all();
             if ($image = $request->file('image')) {
-            $destinationPath = '/public/images/news';
+            $destinationPath = 'images/news/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
