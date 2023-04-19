@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('news', function (Blueprint $table) {
-            $table->bigIncrements('id');           
-            $table->string('image');
+
+            $table->id();           
             $table->string('title');
             $table->text('content');
+            $table->string('image_path');
             $table->timestamps();
         });
     }
