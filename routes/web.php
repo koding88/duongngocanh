@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\User\CartController;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +35,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     //News
     Route::resource('admin/news', NewsController::class);
-    
 
     // Product
     Route::resource('admin/products', ProductsController::class);
@@ -60,11 +60,10 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/checkout', function () {
     //     return view('pages.cart');
     // });
-    Route::get('/cart', 'App\Http\Controllers\User\CartController@index')->name('cart.index');
-    Route::post('/cart', 'App\Http\Controllers\User\CartController@store')->name('cart.store');
-    Route::get('empty', function () {
-        Cart::destroy();
-    });
+    // Route::get('/cart', 'App\Http\Controllers\User\CartController@index')->name('cart.index');
+    // Route::post('/cart', 'App\Http\Controllers\User\CartController@store')->name('cart.store');
+    // Route::resource('/cart', CartController::class);
+    
 
     Route::get('/checkout', 'App\Http\Controllers\User\CheckoutController@index')->name('checkout.index');
 });

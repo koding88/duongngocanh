@@ -23,16 +23,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach(Cart::content() as $item)
+                            @foreach($products as $items)
                             <tr class="table-body-row">
-                                <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+                                <td class="product-remove">
+                                    <form action="{{route('cart.destroy', $items->id)}}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit"><i class="far fa-window-close"></i></button>
+                                    </form>
+                                </td>
                                 <td class="product-image"><img
-                                        src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                                        src="{{ asset('images/' . $items->image_path) }}"
                                         alt=""></td>
-                                <td class="product-name">Strawberry</td>
-                                <td class="product-price">$85</td>
+                                <td class="product-name">{{$items->name}}</td>
+                                <td class="product-price">{{$items->price}}</td>
                                 <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
+                                <td class="product-total">{{$items->quantity}}</td>
                             </tr>
                             {{-- <tr class="table-body-row">
                                 <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
@@ -67,15 +73,15 @@
                             <tbody>
                                 <tr class="total-data">
                                     <td><strong>Subtotal: </strong></td>
-                                    <td>$500</td>
+                                    <td>{{ Cart::subtotal()}}</td>
                                 </tr>
                                 <tr class="total-data">
                                     <td><strong>Shipping: </strong></td>
-                                    <td>$45</td>
+                                    <td>Freeship</td>
                                 </tr>
                                 <tr class="total-data">
                                     <td><strong>Total: </strong></td>
-                                    <td>$545</td>
+                                    <td>{{ Cart::total()}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -90,6 +96,7 @@
         </div>
         @else
         <h3>No items in Cart!</h3>
+            <a href="{{route('home')}}" class="btn btn-cart">Continue Shopping</a>
         @endif
 
         {{-- Brands --}}
