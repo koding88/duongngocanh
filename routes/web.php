@@ -39,6 +39,14 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     // Route::post('/brands-update/{id}', 'App\Http\Controllers\Admin\BrandController@brandupdate');
 
     // Route::delete('/brands-delete/{id}', 'App\Http\Controllers\Admin\BrandController@branddelete');
+    //News
+    Route::get('admin/news', 'App\Http\Controllers\Admin\NewsController@index');
+    Route::get('admin/news/create', 'App\Http\Controllers\Admin\NewsController@create');
+    Route::post('store/', 'App\Http\Controllers\Admin\NewsController@store');
+    Route::get('admin/news/show/{new}', 'App\Http\Controllers\Admin\NewsController@show');
+    Route::get('admin/news/edit/{new}', 'App\Http\Controllers\Admin\NewsController@edit');
+    Route::put('admi/news/edit/{new}','App\Http\Controllers\Admin\NewsController@update');
+    Route::delete('/{new}','App\Http\Controllers\Admin\NewsController@destroy');
 
 
     

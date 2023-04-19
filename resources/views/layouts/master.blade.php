@@ -59,8 +59,8 @@
               <p>Orders</p>
             </a>
           </li>
-          <li class="{{'news' == request() -> path() ?'active':''}}">
-            <a href="/news">
+          <li class="{{'admin/news' == request() -> path() ?'active':''}}">
+            <a href="{{ url('admin/news') }}">
               <i class="now-ui-icons education_paper"></i>
               <p>News</p>
             </a>
