@@ -16,13 +16,16 @@
                     </a>
 
                     <div class="table-responsive">
-<table>
-    <tr>
-        <th>Image</th>
-        <th>Title</th>
-        <th>Contents</th>
-        <th>Action</th>
-    </tr>
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Content</th>                                  
+                                </tr>
+                            </thead>
+                            <tbody>
     @foreach ($news as $new)
     <tr>
         <th scope="row">{{ $new->id }}</th>
@@ -52,7 +55,7 @@
         </td>
     </tr> 
     @endforeach
-    
+    </tbody>
 </table>
                     </div>
                 </div>

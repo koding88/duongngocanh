@@ -11,31 +11,26 @@ class NewsController extends Controller
   
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $new = News::latest()->paginate(5);
-        return view('admin.news.index',compact('new'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        $news = News::all();
+        return view('admin.news.index', [
+            'news' => $news,
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('admin.news.create');
+        $news = News::all();
+        return view('admin.news.create')->with('news', $news);
     }
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -47,7 +42,7 @@ class NewsController extends Controller
             ]);
             $input = $request->all();
             if ($image = $request->file('image')) {
-            $destinationPath = 'images/news/';
+            $destinationPath = '/images/news/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
@@ -59,48 +54,48 @@ class NewsController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\News  $new
-     * @return \Illuminate\Http\Response
      */
-    public function show(News  $new)
+    public function show(string $id)
     {
-        return view('admin.news.show',compact('new'));
+        $news = News::find($id);
+        return view('admin.news.show')->with('news', $news);;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\News  $new
-     * @return \Illuminate\Http\Response
      */
-    public function edit(News  $new)
+    public function edit(string $id)
     {
-        return view('admin.news.edit',compact('new'));
+        
+        $news = News::find($id);
+        return view('admin.news.edit')->with('news', $news);
     }
 
-    public function update(Request $request, News  $new)
+    public function update(Request $request, string $id)
     {
+        $news = News::findOrFail($id);
         $request->validate([
             'title' => 'required',
             'content' => 'required',
             ]);
             $input = $request->all();
             if ($image = $request->file('image')) {
-            $destinationPath = 'images/news/';
+            $destinationPath = '/images/news/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
             }else{
                 unset($input['image']);
             }
-            $new->update($input);
+            $news->update($input);
             return redirect()->route('admin/news')->with('ok','News updated ok');
     }
 
-    public function destroy(News $new)
+    public function destroy(string $id)
     {
-        $new->delete();
+        $news = News::find($id);
+        $news->delete();
         return redirect()->route('admin/news')->with('ok','News deleted ok');
     }
 }

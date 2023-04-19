@@ -15,28 +15,20 @@
                             <i class="bi bi-plus-circle"></i>
                             Back
                         </a>
-                        <form action="/admin/news" method="post" enctype="multipart/form-data">
+                        <form action="/admin/products" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <strong>Image:</strong>
-                                    <img src="/images/news/{{$new->image}}" width="250px">
-                                </div>
+                            <div class="form-group">
+                                <label for="image">Image</label>
+                                <input type="file" name="image" class="form-control">
                             </div>
-                            
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="form-group">
-                                            <strong>Title:</strong>
-                                            {{$new->title}}
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-sm-12">
-                                        <div class="form-group">
-                                            <strong>Content:</strong>
-                                            {{$new->content}}
-                                        </div>
-                                    </div>
+                            <div class="form-group">
+                                <label for="name">Title</label>
+                                <input type="text" class="form-control" name="title" placeholder="Title...">
+                            </div>
+                            <div class="form-group">
+                                <label for="qauntity">Content</label>
+                                <input type="text" class="form-control" name="content">
+                            </div>
                                     <button type="submit" class="btn btn-dark">Submit</button>
                                 </form>
                             </div>

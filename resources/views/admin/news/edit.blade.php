@@ -14,13 +14,13 @@
                         <i class="bi bi-plus-circle"></i>
                         Back
                     </a>
-                    <form action="/admin/news/{{ $new->id }}" method="post" enctype="multipart/form-data">
+                    <form action="/admin/news/{{ $news->id }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')      
     <div class="col-md-12 col-sm-12">
         <div class="form-group">
             <strong>Image:</strong>
-            <img src="/images/news/{{$new->image}}" width="250px">
+            <img src="/images/news/{{$news->image}}" width="250px">
         </div>
     </div>
     
@@ -28,13 +28,13 @@
             <div class="col-md-12 col-sm-12">
                 <div class="form-group">
                     <strong>Title:</strong>
-                    {{$new->title}}
+                    {{$news->title}}
                 </div>
             </div>
             <div class="col-md-12 col-sm-12">
                 <div class="form-group">
                     <strong>Content:</strong>
-                    {{$new->content}}
+                    {{$news->content}}
                 </div>
             </div>
             <button type="submit" class="btn btn-dark">Submit</button>
