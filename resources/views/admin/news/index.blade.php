@@ -33,7 +33,7 @@
                         <td>{{$new->content}}</td>
                         <td class="custom-flex">
                             <a href="news/{{ $new->id }}">
-                                <button class="btn btn-info btn-sm">Detail</button>
+                                <button class="btn btn-info btn-sm">Show</button>
                             </a>
 
                             <a href="news/{{ $new->id }}/edit">
@@ -41,7 +41,7 @@
                                     <i class="bi bi-pencil-square"></i>
                                     Edit
                                 </button>
-                            </a>>
+                            </a>
 
                             <form action="/admin/news/{{ $new->id }}" method="post">
                                 @csrf

@@ -40,6 +40,9 @@
                         </form>
                     </div>
                     <div class="checkout-oder">
+                        {{-- @foreach (Cart::content() as $item) --}}
+                            
+                        {{-- @endforeach --}}
                         <table class="order-details">
                             <thead>
                                 <tr>
