@@ -4,7 +4,9 @@
     <main>
         <!-- Hero-about -->
         @include('components.heading', ['desc' => 'EXQUISITE & LUXURY'], ['heading' => 'Cart'])
+        {{-- @if(Cart::count() > 0) --}}
 
+        {{-- <h2>{{Cart::count}}</h2> --}}
         <!-- Cart -->
         <div class="cart">
             <div class="main-content">
@@ -21,6 +23,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach(Cart::content() as $item)
                             <tr class="table-body-row">
                                 <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
                                 <td class="product-image"><img
@@ -31,7 +34,7 @@
                                 <td class="product-quantity"><input type="number" placeholder="0"></td>
                                 <td class="product-total">1</td>
                             </tr>
-                            <tr class="table-body-row">
+                            {{-- <tr class="table-body-row">
                                 <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
                                 <td class="product-image"><img
                                         src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
@@ -50,7 +53,7 @@
                                 <td class="product-price">$35</td>
                                 <td class="product-quantity"><input type="number" placeholder="0"></td>
                                 <td class="product-total">1</td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                     <div class="total-section">
@@ -84,6 +87,9 @@
                 </div>
             </div>
         </div>
+        {{-- @else --}}
+        {{-- <h3>No items in Cart!</h3> --}}
+        {{-- @endif --}}
 
         {{-- Brands --}}
         @include('components.brands')

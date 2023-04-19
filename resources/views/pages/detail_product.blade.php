@@ -14,29 +14,29 @@
                             alt="" class="thumb" />
                     </div>
                     <div class="product-info">
-                        <h3 class="title">Green apples have polyphenols</h3>
+                        <h3 class="title">{{$products->title}}</h3>
                         <p class="category">
-                            <strong>Category: </strong>Fruits, Organic
+                            <strong>Category:</strong>{{$products->category}}
                         </p>
                         <span class="quantity">
-                            <strong>Quantity:</strong>10
+                            <strong>Quantity:</strong>{{$products->quantity}}
                         </span>
-                        <span class="price">$50</span>
+                        <span class="price">{{$products->price}}</span>
                         <p class="desc">
-                            Lorem ipsum dolor sit amet, consectetur
-                            adipisicing elit. Dicta sint dignissimos, rem
-                            commodi cum voluptatem quae reprehenderit
-                            repudiandae ea tempora incidunt ipsa, quisquam
-                            animi perferendis eos eum modi! Tempora, earum.
+                            {{$products->desc}}
                         </p>
                         <div class="content-form">
-                            <form action="" method="post">
-                                <input type="number" name="quantity" placeholder="0" />
+                            <form action="{{route('cart.store')}}" method="post">
+                                {{csrf_field()}}
+                                <input type="hidden" name="id" value="{{$product->id}}" placeholder="ID" />
+                                <input type="file" type="hidden" value="{{$product->image}}" name="image" placeholder="Image" />
+                                <input type="hidden" name="name" value="{{$product->name}}" placeholder="Name" />
+                                <input type="hidden" name="price" value="{{$product->price}}" placeholder="Price" />
+                                <button type="submit" class="btn btn-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Add to Cart
+                                </button>
                             </form>
-                            <a href="#!" class="btn btn-cart">
-                                <i class="fas fa-shopping-cart"></i>
-                                Add to Cart
-                            </a>
                         </div>
                         <h4>Share:</h4>
                         <ul class="social-share">
