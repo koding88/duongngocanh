@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
-    protected $table='news';
+    protected $table = 'news';
     protected $primaryKey = 'id';
-    protected $fillable =['image','title','content'];
+    protected $fillable = ['image_path', 'title', 'content'];
 }
-

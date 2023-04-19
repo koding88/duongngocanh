@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-  
+
     /**
      * Display a listing of the resource.
      */
@@ -39,23 +39,24 @@ class NewsController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required',
             'content' => 'required',
-            
-            ]);
-            $input = $request->all();
-            if ($image = $request->file('image')) {
-            $destinationPath = '/public/images/news';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
-            }
 
-            $news = News::create([
-                'title' => $request->input('title'),
-                'content' => $request->input('content'),
-            ]);
-            $news->save();
-            return redirect('admin/news');
+        ]);
 
+        // client img name and server img must be diff
+        $generatedImageName = 'image' . time() . '-'
+            . $request->name . '.'
+            . $request->image->extension();
+
+        // move to a folder
+        $request->image->move(public_path('images'), $generatedImageName);
+
+        $news = News::create([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'image_path' => $generatedImageName
+        ]);
+        $news->save();
+        return redirect('admin/news');
     }
 
     /**
@@ -73,7 +74,7 @@ class NewsController extends Controller
      */
     public function edit(string $id)
     {
-        
+
         $news = News::find($id);
         return view('admin.news.edit')->with('news', $news);
     }
@@ -84,24 +85,24 @@ class NewsController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            ]);
-            $input = $request->all();
-            if ($image = $request->file('image')) {
+        ]);
+        $input = $request->all();
+        if ($image = $request->file('image')) {
             $destinationPath = '/public/images/news';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
-            }else{
-                unset($input['image']);
-            }
-            $news->save();
-            return redirect('admin/news');
+        } else {
+            unset($input['image']);
+        }
+        $news->save();
+        return redirect('admin/news');
     }
 
     public function destroy(string $id)
     {
         $news = News::find($id);
         $news->delete();
-        return redirect()->route('admin/news')->with('ok','News deleted ok');
+        return redirect()->route('admin/news')->with('ok', 'News deleted ok');
     }
 }
