@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     //News
     Route::resource('admin/news', NewsController::class);
+    
 
     // Product
     Route::resource('admin/products', ProductsController::class);

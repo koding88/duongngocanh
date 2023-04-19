@@ -31,7 +31,7 @@
                                     placeholder="Name...">
                             </div>
                             <div class="form-group">
-                                <label for="qauntity">Quantity</label>
+                                <label for="quantity">Quantity</label>
                                 <input type="number" class="form-control" name="quantity"
                                     value="{{ $products->quantity }}">
                             </div>
