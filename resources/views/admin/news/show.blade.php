@@ -19,7 +19,7 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="form-group">
                                 <strong>Image:</strong>
-                                <img src="/images{{$news->image}}" width="250px">
+                                <img src="images/ {{$news->image}}" width="250px">
                             </div>
                         </div>                        
                             <div class="row">
