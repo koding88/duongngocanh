@@ -39,7 +39,6 @@ class NewsController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required',
             'content' => 'required',
-
         ]);
 
         // client img name and server img must be diff
@@ -87,13 +86,11 @@ class NewsController extends Controller
             'content' => 'required',
         ]);
         $input = $request->all();
-        if ($image = $request->file('image')) {
-            $destinationPath = '/public/images/news';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
-        } else {
-            unset($input['image']);
+        // Update image if a new one is uploaded
+        if ($request->hasFile('image')) {
+            $generatedImageName = 'image' . time() . '-' . $request->name . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $generatedImageName);
+            $news->image_path = $generatedImageName;
         }
         $news->save();
         return redirect('admin/news');
