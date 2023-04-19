@@ -17,29 +17,29 @@
                     <form action="/admin/news/{{ $news->id }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')      
-    <div class="col-md-12 col-sm-12">
-        <div class="form-group">
-            <strong>Image:</strong>
-            <img src="/public/images/news/{{$news->image}}" width="250px">
-        </div>
-    </div>
-    
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                    <strong>Title:</strong>
-                    {{$news->title}}
-                </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-                <div class="form-group">
-                    <strong>Content:</strong>
-                    {{$news->content}}
-                </div>
-            </div>
-            <button type="submit" class="btn btn-dark">Submit</button>
-        </form>
-    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <strong>Image:</strong>
+                            <img src="/public/images/news/{{$news->image}}" width="250px">
+                        </div>
+                    </div>
+                    
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <strong>Title:</strong>
+                                    {{$news->title}}
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <strong>Content:</strong>
+                                    {{$news->content}}
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Submit</button>
+                        </form>
+                    </div>
             </div>
         </div>
     </div>

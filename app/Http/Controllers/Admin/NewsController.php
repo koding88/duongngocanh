@@ -34,6 +34,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        $news = News::all();
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required',
@@ -47,8 +48,13 @@ class NewsController extends Controller
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
             }
-            News::create($input);
-            return redirect()->route('admin/news')->with('ok','News created ok');
+
+            $news = News::create([
+                'title' => $request->input('title'),
+                'content' => $request->input('content'),
+            ]);
+            $news->save();
+            return redirect('admin/news');
 
     }
 
@@ -88,8 +94,8 @@ class NewsController extends Controller
             }else{
                 unset($input['image']);
             }
-            $news->update($input);
-            return redirect()->route('admin/news')->with('ok','News updated ok');
+            $news->save();
+            return redirect('admin/news');
     }
 
     public function destroy(string $id)

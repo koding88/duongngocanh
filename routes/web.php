@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\NewsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,13 +41,14 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     // Route::delete('/brands-delete/{id}', 'App\Http\Controllers\Admin\BrandController@branddelete');
     //News
-    Route::get('admin/news', 'App\Http\Controllers\Admin\NewsController@index');
-    Route::get('admin/news/create', 'App\Http\Controllers\Admin\NewsController@create');
-    Route::post('store/', 'App\Http\Controllers\Admin\NewsController@store');
-    Route::get('admin/news/show/{new}', 'App\Http\Controllers\Admin\NewsController@show');
-    Route::get('admin/news/edit/{new}', 'App\Http\Controllers\Admin\NewsController@edit');
-    Route::put('admi/news/edit/{new}','App\Http\Controllers\Admin\NewsController@update');
-    Route::delete('/{new}','App\Http\Controllers\Admin\NewsController@destroy');
+    // Route::get('admin/news', 'App\Http\Controllers\Admin\NewsController@index');
+    // Route::get('admin/news/create', 'App\Http\Controllers\Admin\NewsController@create');
+    // Route::get('', 'App\Http\Controllers\Admin\NewsController@store');
+    // Route::get('admin/news/show/{new}', 'App\Http\Controllers\Admin\NewsController@show');
+    // Route::get('admin/news/edit/{new}', 'App\Http\Controllers\Admin\NewsController@edit');
+    // Route::put('admi/news/edit/{new}','App\Http\Controllers\Admin\NewsController@update');
+    // Route::delete('/{new}','App\Http\Controllers\Admin\NewsController@destroy');
+    Route::resource('admin/news', NewsController::class);
 
 
     
