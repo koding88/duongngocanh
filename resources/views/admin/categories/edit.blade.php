@@ -16,7 +16,7 @@
                             Back
                         </a>
 
-                        <form method="post" action="/categories/{{ $categories->id }}">
+                        <form method="post" action="/admin/categories/{{ $categories->id }}">
                             @csrf
                             @method('PUT')
                             <label>Name</label><br>

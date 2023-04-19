@@ -64,7 +64,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $input = $request->all();
         $category->update($input);
-        return redirect('/')->with('msg', 'Category edit success!');
+        return redirect('/admin/categories')->with('msg', 'Category edit success!');
     }
 
     /**

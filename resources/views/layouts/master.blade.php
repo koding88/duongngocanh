@@ -54,13 +54,13 @@
             </a>
           </li>
           <li class="{{'' == request() -> path() ?'active':''}}">
-            <a href="#">
+            <a href="">
               <i class="now-ui-icons shopping_delivery-fast"></i>
               <p>Orders</p>
             </a>
           </li>
-          <li class="{{'news' == request() -> path() ?'active':''}}">
-            <a href="/admin/news">
+          <li class="{{'admin/news' == request() -> path() ?'active':''}}">
+            <a href="{{ url('admin/news') }}">
               <i class="now-ui-icons education_paper"></i>
               <p>News</p>
             </a>

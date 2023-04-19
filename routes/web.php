@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CheckoutController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
@@ -32,17 +32,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::delete('/role-delete/{id}', 'App\Http\Controllers\Admin\RoleController@registerdelete');
 
-
-
-    // Route::get('/brands','App\Http\Controllers\Admin\BrandController@index');
-
-    // Route::post('/add-brands','App\Http\Controllers\Admin\BrandController@store');
-
-    // Route::get('/brands-edit/{id}', 'App\Http\Controllers\Admin\BrandController@brandedit');
-
-    // Route::post('/brands-update/{id}', 'App\Http\Controllers\Admin\BrandController@brandupdate');
-
-    // Route::delete('/brands-delete/{id}', 'App\Http\Controllers\Admin\BrandController@branddelete');
     //News
     Route::resource('admin/news', NewsController::class);
 
@@ -86,4 +75,3 @@ Route::view('/shop', 'pages.shop');
 Route::view('/contact', 'pages.contact');
 Route::view('/product/detail', 'pages.detail_product');
 Route::view('/news/detail', 'pages.detail_news');
-
