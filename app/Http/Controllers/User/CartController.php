@@ -60,7 +60,7 @@ class CartController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**
@@ -70,4 +70,5 @@ class CartController extends Controller
     {
         //
     }
+    
 }

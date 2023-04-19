@@ -120,4 +120,6 @@ class ProductsController extends Controller
         $products->delete();
         return redirect('admin/products');
     }
+
+    
 }
