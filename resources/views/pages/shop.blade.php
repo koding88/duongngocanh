@@ -35,32 +35,6 @@
                         @endforeach
                     @endif
                 </div>
-
-                <ul class="pagination">
-                    <li>
-                        <a href="">
-                            <i class="fa-solid fa-arrow-left"></i>
-                            Prev
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="">1</a>
-                    </li>
-                    <li>
-                        <a href="">2</a>
-                    </li>
-                    <li>
-                        <a href="">3</a>
-                    </li>
-
-                    <li>
-                        <a href="">
-                            Next
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
 
