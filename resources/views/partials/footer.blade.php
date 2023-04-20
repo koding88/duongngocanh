@@ -22,19 +22,19 @@
                 <h2 class="widget-title">Pages</h2>
                 <ul>
                     <li>
-                        <a href="home">Home</a>
+                        <a href="{{ url('/') }}">Home</a>
                     </li>
                     <li>
-                        <a href="about">About</a>
+                        <a href="{{ url('about') }}">About</a>
                     </li>
                     <li>
-                        <a href="news">News</a>
+                        <a href="{{ url('news') }}">News</a>
                     </li>
                     <li>
-                        <a href="shop">Shop</a>
+                        <a href="{{ url('shop') }}">Shop</a>
                     </li>
                     <li>
-                        <a href="contact">Contact</a>
+                        <a href="{{ url('contact') }}">Contact</a>
                     </li>
                 </ul>
             </div>

@@ -13,7 +13,7 @@
                         <a href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="{{ request()->is('about') ? 'active' : '' }}">
-                        <a href="about">About</a>
+                        <a href="{{ url('about') }}">About</a>
                     </li>
                     <li class="{{ request()->is('news') ? 'active' : '' }}">
                         <a href="{{ url('news') }}">News</a>
@@ -22,7 +22,7 @@
                         <a href="{{ url('shop') }}">Shop</a>
                     </li>
                     <li class="{{ request()->is('contact') ? 'active' : '' }}">
-                        <a href="contact">Contact</a>
+                        <a href="{{ url('contact') }}">Contact</a>
                     </li>
                 </ul>
             </nav>
