@@ -39,12 +39,12 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->group(function () {
-    // Route::get('/cart', function () {
-    //     return view('pages.cart');
-    // });
-    // Route::get('/checkout', function () {
-    //     return view('pages.cart');
-    // });
+    Route::get('/cart', function () {
+        return view('pages.cart');
+    });
+    Route::get('/checkout', function () {
+        return view('pages.cart');
+    });
     // Route::get('/cart', 'App\Http\Controllers\User\CartController@index')->name('cart.index');
     // Route::post('/cart', 'App\Http\Controllers\User\CartController@store')->name('cart.store');
     // Route::resource('/cart', CartController::class);
