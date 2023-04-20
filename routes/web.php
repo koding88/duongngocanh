@@ -4,11 +4,9 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
-use App\Http\Controllers\User\CartController;
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Controllers\User\CartsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\CheckoutController;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -62,7 +60,7 @@ Route::middleware(['auth'])->group(function () {
     });
     // Route::get('/cart', 'App\Http\Controllers\User\CartController@index')->name('cart.index');
     // Route::post('/cart', 'App\Http\Controllers\User\CartController@store')->name('cart.store');
-    // Route::resource('/cart', CartController::class);
+    Route::resource('/cart', CartsController::class);
     
 
     Route::get('/checkout', 'App\Http\Controllers\User\CheckoutController@index')->name('checkout.index');
