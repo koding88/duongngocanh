@@ -75,7 +75,24 @@
                 </div>
                 <div class="product-list">
                     {{-- Product item --}}
-                    @include('components.product')
+                    @for ($i = 0; $i < 3; $i++)
+                        <div class="item">
+                            <a href="product/detail/{{ $products[$i]->id }}">
+                                <img src="{{ asset('images/' . $products[$i]->image_path) }}" alt="product" class="thumb">
+                            </a>
+                            <div class="info">
+                                <h3 class="title">
+                                    <a href="product/detail/{{ $products[$i]->id }}">{{ $products[$i]->name }}</a>
+                                </h3>
+                                <p class="category">{{ $products[$i]->category->name }}</p>
+                                <span class="price">{{ $products[$i]->price }}$</span>
+                                <a href="#!" class="btn btn-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    @endfor
                 </div>
             </div>
         </div>
@@ -196,7 +213,37 @@
                 <div class="row">
                     <div class="news-list">
                         {{-- News-item --}}
-                        @include('components.newsitem')
+                        @for ($i = 0; $i < 3; $i++)
+                            <div class="news-item">
+                                <div class="img-news">
+                                    <a href="new/detail/{{ $news[$i]->id }}">
+                                        <img src="{{ asset('images/' . $news[$i]->image_path) }}" alt=""
+                                            class="thumb">
+                                    </a>
+                                </div>
+                                <div class="news-info">
+                                    <h3 class="title line-clamp line-2">
+                                        <a href="new/detail/{{ $news[$i]->id }}">
+                                            {{ $news[$i]->title }}
+                                        </a>
+                                    </h3>
+                                    <p class="blog-meta">
+                                        <span class="author">
+                                            <i class="fas fa-user"></i>
+                                            Admin</span>
+                                        <span class="date">
+                                            <i class="fas fa-calendar"></i>
+                                            27 December, 2019</span>
+                                    </p>
+                                    <p class="desc line-clamp">
+                                        {{ $news[$i]->content }}
+                                    </p>
+                                    <a href="" class="btn-news">read more
+                                        <i class="fas fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        @endfor
                     </div>
                 </div>
                 <div class="row">

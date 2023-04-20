@@ -85,13 +85,16 @@ class NewsController extends Controller
             'title' => 'required',
             'content' => 'required',
         ]);
-        $input = $request->all();
         // Update image if a new one is uploaded
         if ($request->hasFile('image')) {
             $generatedImageName = 'image' . time() . '-' . $request->name . '.' . $request->image->extension();
             $request->image->move(public_path('images'), $generatedImageName);
             $news->image_path = $generatedImageName;
         }
+
+        // Update other product fields
+        $news->title = $request->input('title');
+        $news->content = $request->input('content');
         $news->save();
         return redirect('admin/news');
     }
@@ -100,6 +103,6 @@ class NewsController extends Controller
     {
         $news = News::find($id);
         $news->delete();
-        return redirect()->route('admin/news')->with('ok', 'News deleted ok');
+        return redirect('admin/news');
     }
 }

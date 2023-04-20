@@ -9,17 +9,17 @@
             <!-- Nav -->
             <nav class="nav">
                 <ul>
-                    <li class="{{ request()->is('index') ? 'active' : '' }}">
-                        <a href="index">Home</a>
+                    <li class="{{ request()->is('/') ? 'active' : '' }}">
+                        <a href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="{{ request()->is('about') ? 'active' : '' }}">
                         <a href="about">About</a>
                     </li>
                     <li class="{{ request()->is('news') ? 'active' : '' }}">
-                        <a href="news">News</a>
+                        <a href="{{ url('news') }}">News</a>
                     </li>
                     <li class="{{ request()->is('shop') ? 'active' : '' }}">
-                        <a href="shop">Shop</a>
+                        <a href="{{ url('shop') }}">Shop</a>
                     </li>
                     <li class="{{ request()->is('contact') ? 'active' : '' }}">
                         <a href="contact">Contact</a>

@@ -15,15 +15,10 @@
                 </div>
                 <div class="row">
                     <div class="news-list">
-                        @if (request()->is('news'))
-                            {{-- News-item --}}
-                            @for ($i = 0; $i < 3; $i++)
-                                @include('components.newsitem')
-                            @endfor
-                        @else
-                            {{-- Default items --}}
+                        {{-- News-item --}}
+                        @foreach ($newss as $news)
                             @include('components.newsitem')
-                        @endif
+                        @endforeach
                     </div>
                 </div>
             </div>

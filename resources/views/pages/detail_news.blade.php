@@ -11,8 +11,7 @@
                 <div class="body">
                     <div class="news-article">
                         <div class="img-news">
-                            <img src="https://images.unsplash.com/photo-1681238339140-7fa1654fb6ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1513&q=80"
-                                alt="">
+                            <img src="{{ asset('images/' . $news->image_path) }}" alt="" class="thumb">
                         </div>
                         <p class="blog-meta">
                             <span class="author">
@@ -23,25 +22,8 @@
                                 27 December, 2019</span>
                         </p>
                         <div class="info">
-                            <h2>Pomegranate can prevent heart disease</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint soluta, similique quidem fuga
-                                vel voluptates amet doloremque corrupti. Perferendis totam voluptates eius error fuga
-                                cupiditate dolorum? Adipisci mollitia quod labore aut natus nobis. Rerum perferendis, nobis
-                                hic adipisci vel inventore facilis rem illo, tenetur ipsa voluptate dolorem, cupiditate
-                                temporibus laudantium quidem recusandae expedita dicta cum eum. Quae laborum repellat a ut,
-                                voluptatum ipsa eum. Culpa fugiat minus laborum quia nam!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, praesentium, dicta. Dolorum
-                                inventore molestias velit possimus, dolore labore aliquam aperiam architecto quo
-                                reprehenderit excepturi ipsum ipsam accusantium nobis ducimus laudantium.</p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum est aperiam voluptatum id
-                                cupiditate quae corporis ex. Molestias modi mollitia neque magni voluptatum, omnis
-                                repudiandae aliquam quae veniam error! Eligendi distinctio, ab eius iure atque ducimus id
-                                deleniti, vel alias sint similique perspiciatis saepe necessitatibus non eveniet, quo nisi
-                                soluta.
-                            </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt beatae nemo quaerat,
-                                doloribus obcaecati odio!</p>
+                            <h2>{{ $news->title }}</h2>
+                            <p>{{ $news->content }}</p>
                         </div>
                     </div>
                     <div class="sidebar-section">

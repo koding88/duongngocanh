@@ -10,34 +10,34 @@
             <div class="main-content">
                 <div class="body">
                     <div class="product-img">
-                        <img src="https://plus.unsplash.com/premium_photo-1668046135207-061641d36b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-                            alt="" class="thumb" />
+                        <img src="{{ asset('images/' . $products->image_path) }}" alt="product" class="thumb">
                     </div>
                     <div class="product-info">
-                        <h3 class="title">{{$products->title}}</h3>
+                        <h3 class="title">{{ $products->name }}</h3>
                         <p class="category">
-                            <strong>Category:</strong>{{$products->category}}
+                            <strong>Category:</strong>{{ $products->category->name }}
                         </p>
                         <span class="quantity">
-                            <strong>Quantity:</strong>{{$products->quantity}}
+                            <strong>Quantity:</strong>{{ $products->quantity }}
                         </span>
-                        <span class="price">{{$products->price}}</span>
+                        <span class="price">{{ $products->price }}$</span>
                         <p class="desc">
-                            {{$products->desc}}
+                            {{ $products->description }}
                         </p>
-                        <div class="content-form">
-                            <form action="{{route('cart.store')}}" method="post">
-                                {{csrf_field()}}
-                                <input type="hidden" name="id" value="{{$product->id}}" placeholder="ID" />
-                                <input type="file" type="hidden" value="{{$product->image}}" name="image" placeholder="Image" />
-                                <input type="hidden" name="name" value="{{$product->name}}" placeholder="Name" />
-                                <input type="hidden" name="price" value="{{$product->price}}" placeholder="Price" />
+                        {{-- <div class="content-form">
+                            <form action="{{ route('cart.store') }}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="id" value="{{ $products->id }}" placeholder="ID" />
+                                <input type="file" type="hidden" value="{{ $products->image }}" name="image"
+                                    placeholder="Image" />
+                                <input type="hidden" name="name" value="{{ $products->name }}" placeholder="Name" />
+                                <input type="hidden" name="price" value="{{ $products->price }}" placeholder="Price" />
                                 <button type="submit" class="btn btn-cart">
                                     <i class="fas fa-shopping-cart"></i>
                                     Add to Cart
                                 </button>
                             </form>
-                        </div>
+                        </div> --}}
                         <h4>Share:</h4>
                         <ul class="social-share">
                             <li>
@@ -80,7 +80,24 @@
                 </div>
                 <div class="product-list">
                     {{-- Product item --}}
-                    @include('components.product')
+                    @for ($i = 0; $i < 3; $i++)
+                        <div class="item">
+                            <a href="{{ url('/product/detail/' . $items[$i]->id) }}">
+                                <img src="{{ asset('images/' . $items[$i]->image_path) }}" alt="product" class="thumb">
+                            </a>
+                            <div class="info">
+                                <h3 class="title">
+                                    <a href="{{ url('/product/detail/' . $items[$i]->id) }}">{{ $items[$i]->name }}</a>
+                                </h3>
+                                <p class="category">{{ $items[$i]->category->name }}</p>
+                                <span class="price">{{ $items[$i]->price }}$</span>
+                                <a href="#!" class="btn btn-cart">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    @endfor
                 </div>
             </div>
         </div>
