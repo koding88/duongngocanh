@@ -12,9 +12,15 @@
                     <div class="body">
                         <h3 class="title">Category</h3>
                         <ul class="shop-filter">
-                            <li class="active">All</li>
+                            <li @unless (request()->input('category_id')) class="active" @endif>
+                                <a href="{{ url('shop') }}">All</a>
+                            </li>
                             @foreach ($category as $item)
-                                <li>{{ $item->name }}</li>
+                                <li @if ($request->input('category_id') == $item->id) class="active" @endif>
+                                    <a href="{{ url('shop?category_id=' . $item->id) }}">
+                                        {{ $item->name }}
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
@@ -55,7 +61,6 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
         </div>
 

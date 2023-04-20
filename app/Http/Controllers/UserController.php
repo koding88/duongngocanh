@@ -26,11 +26,12 @@ class UserController extends Controller
         return view('pages.news', compact('newss'));
     }
 
-    public function shop()
+    public function shop(Request $request)
     {
-        $productss = Product::all();
         $category = Category::all();
-        return view('pages.shop', compact('productss', 'category'));
+        $categoryId = $request->input('category_id');
+        $productss = $categoryId ? Product::where('category_id', $categoryId)->get() : Product::all();
+        return view('pages.shop', compact('productss', 'category', 'request'));
     }
 
     /**
