@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -16,29 +18,43 @@ class CheckoutController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+       $request -> validate([
+        'fullname'=> 'required',
+        'email'=> 'required',
+        'address'=>'required',
+        'phone'=>'required',
+        'note'=>'required'
+       ]);
+       //Create the order
+       $order = new Order();
+       $order->fullname = $request->input('fullname');
+       $order->email = $request->input('email');
+       $order->address = $request->input('address');
+       $order->phone = $request->input('phone');
+       $order->note = $request->input('note');
+       $order->save();
+
+       //create order detail
+       foreach ($request->input('products') as $product)
+       {
+        $detail = new OrderDetail();
+        $detail->order_id=$order->id;
+        $detail->order_id=$order->product;
+        $detail->product_id=$product['id'];
+        $detail->quantity=$order->id;
+        $detail->order_id=$order->id;
+        $detail->order_id=$order->id;
+        
+       }
+
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      */

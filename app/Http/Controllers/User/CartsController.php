@@ -6,15 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CartsController extends Controller
 {
     public function index()
     {
-        
-    }
-    public function cart()
-    {
-        return view('pages.cart');
+        $products = Product::all();
+        return view('pages.cart', compact('products'));
     }
     public function addToCart($id)
     {
@@ -31,7 +28,7 @@ class ProductController extends Controller
             ];
         }
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'add to cart success!');
+        return redirect()->back()->with('Success', 'Added to Cart Successfully!');
     }
     public function update(Request $request)
     {
@@ -39,7 +36,7 @@ class ProductController extends Controller
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"]=$request->quantity;
             session()->put('cart', $cart);
-            session()->flash('Succesfully', 'Cart Succesfully!');
+            session()->flash('Succesfully', 'Updated Cart Succesfully!');
         }
     }
     public function remove(Request $request)
