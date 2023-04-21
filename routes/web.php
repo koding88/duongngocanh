@@ -37,7 +37,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::resource('admin/categories', CategoryController::class);
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart', function () {
         return view('pages.cart');
@@ -48,10 +49,11 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/cart', 'App\Http\Controllers\User\CartController@index')->name('cart.index');
     // Route::post('/cart', 'App\Http\Controllers\User\CartController@store')->name('cart.store');
     // Route::resource('/cart', CartController::class);
-    
+
 
     Route::get('/checkout', 'App\Http\Controllers\User\CheckoutController@index')->name('checkout.index');
 });
+
 
 
 Route::get('/', [UserController::class, 'index']);

@@ -4,9 +4,9 @@
     <main>
         <!-- Hero-about -->
         @include('components.heading', ['desc' => 'EXQUISITE & LUXURY'], ['heading' => 'Cart'])
-        @if(Cart::count() > 0)
+        {{-- @if(Cart::count() > 0) --}}
 
-        <h2>{{Cart::count}}</h2>
+        {{-- <h2>{{Cart::count}}</h2> --}}
         <!-- Cart -->
         <div class="cart">
             <div class="main-content">
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        @else
+        {{-- @else --}}
         <h3>No items in Cart!</h3>
             <a href="{{route('home')}}" class="btn btn-cart">Continue Shopping</a>
         @endif
