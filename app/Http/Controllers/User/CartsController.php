@@ -35,11 +35,17 @@ class CartsController extends Controller
     //     ]);
     // }
 
-    public function addCart($id)
+    public function addCart( Request $request, $id)
     {
         $product = Product::findOrFail($id);
 
         $cart = session()->get('cart');
+
+        if ($request->hasFile('image')) {
+            $generatedImageName = 'image' . time() . '-' . $request->name . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $generatedImageName);
+            $product->image_path = $generatedImageName;
+        }
 
         // Nếu giỏ hàng trống
         if (!$cart) {
@@ -48,7 +54,7 @@ class CartsController extends Controller
                     "name" => $product->name,
                     "quantity" => 1,
                     "price" => $product->price,
-                    "image" => $product->image_path,
+                    "image_path" => $product->image_path,
                     "subtotal" => $product->price
                 ]
             ];
@@ -69,7 +75,7 @@ class CartsController extends Controller
             "name" => $product->name,
             "quantity" => 1,
             "price" => $product->price,
-            "image" => $product->image_path,
+            "image_path" => $product->image_path,
             "subtotal" => $product->price
         ];
         session()->put('cart', $cart);
@@ -89,7 +95,7 @@ class CartsController extends Controller
 
         return redirect()->back()->with('error', 'Invalid quantity!');
     }
-    public function remove($id)
+    public function destroy($id)
     {
         $cart = session()->get('cart');
 

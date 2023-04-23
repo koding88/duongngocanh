@@ -121,48 +121,5 @@ class ProductsController extends Controller
         return redirect('admin/products');
     }
 
-    // public function addToCart($id)
-    // {
-    //     $product = Product::findOrFail($id);
-    //     $cart = session()->get('cart', []);
-
-    //     if (isset($cart[$id])) {
-    //         $cart[$id]['quantity']++;
-    //     } else {
-    //         $cart[$id] = [
-    //             'image' => $product->image,
-    //             'name' => $product->name,
-    //             'price' => $product->price,
-    //             'quantity' => 1,
-    //         ];
-    //     }
-
-    //     session()->put('cart', $cart);
-
-    //     return redirect()->back()->with('success', 'Product added to cart successfully!');
-    // }
-
-    // public function updatecart(Request $request, $id)
-    // {
-    //     $cart = session()->get('cart');
-
-    //     if (isset($cart[$id])) {
-    //         $cart[$id]['quantity'] = $request->input('quantity');
-    //         session()->put('cart', $cart);
-    //     }
-    //     return  redirect()->back()->with('success', 'Cart updated successfully');
-        
-    // }
-    // public function remove($id)
-    // {
-    //     $cart = session()->get('cart');
-
-    //     if (isset($cart[$id])) {
-    //         unset($cart[$id]);
-    //         session()->put('cart', $cart);
-    //     }
-    //     return  redirect('cart')->back()->with('success', 'Product removed successfully');
-    // }
-
-    
+   
 }

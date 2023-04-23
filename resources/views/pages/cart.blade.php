@@ -42,11 +42,13 @@
                                                 <form action="{{ route('cart.remove', $product) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit"><i class="far fa-window-close"></i></button>
+                                                    <button type="submit" onchange="this.form.submit()"><i class="far fa-window-close"></i></button>
                                                 </form>
                                             </td>
-                                            <td class="product-image"><img src="{{ asset('images/' . $items['image']) }}"
-                                                    alt="">
+                                            <td class="product-image">
+                                                <img
+                                                {{-- src="{{ asset('images/' . $items['image_path']) }}" --}}
+                                                    alt="" name="image_path">
                                             </td>
                                             <td class="product-name" name="name">{{ $items['name'] }}</td>
                                             <td class="product-price" name="price">{{ $items['price'] }}
@@ -58,7 +60,6 @@
                                                     <input type="number"  name="quantity"
                                                     value="{{ $items['quantity'] }}" onchange="this.form.submit()"> 
                                             </td>
-                                        
                                             <td class="product-total">
                                                 ${{ $items['subtotal'] }}
                                             </td>

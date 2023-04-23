@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/cart', [CartsController::class, 'cart'])->name('cart');
     Route::post('/cart/add/{id}', [CartsController::class, 'addCart'])->name('cart.add');
-    Route::delete('/cart/{id}', [CartsController::class, 'remove'])->name('cart.remove');
+    Route::delete('/cart/{id}', [CartsController::class, 'destroy'])->name('cart.remove');
 
 
     Route::get('/checkout', 'App\Http\Controllers\User\CheckoutController@index')->name('checkout.index');
