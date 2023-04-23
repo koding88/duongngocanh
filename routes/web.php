@@ -40,16 +40,14 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/cart', function () {
-        return view('pages.cart');
-    });
-    Route::get('/checkout', function () {
-        return view('pages.cart');
-    });
-    // Route::get('/cart', 'App\Http\Controllers\User\CartController@index')->name('cart.index');
-    // Route::post('/cart', 'App\Http\Controllers\User\CartController@store')->name('cart.store');
+   
     Route::resource('/cart', CartsController::class);
-    
+
+
+    Route::get('/cart', [CartsController::class, 'cart'])->name('cart');
+    Route::post('/cart/add/{id}', [CartsController::class, 'addCart'])->name('cart.add');
+    Route::delete('/cart/{id}', [CartsController::class, 'remove'])->name('cart.remove');
+
 
     Route::get('/checkout', 'App\Http\Controllers\User\CheckoutController@index')->name('checkout.index');
 });

@@ -24,20 +24,14 @@
                         <p class="desc">
                             {{ $products->description }}
                         </p>
-                        {{-- <div class="content-form">
-                            <form action="{{ route('cart.store') }}" method="post">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="id" value="{{ $products->id }}" placeholder="ID" />
-                                <input type="file" type="hidden" value="{{ $products->image }}" name="image"
-                                    placeholder="Image" />
-                                <input type="hidden" name="name" value="{{ $products->name }}" placeholder="Name" />
-                                <input type="hidden" name="price" value="{{ $products->price }}" placeholder="Price" />
+                        <div class="content-form">
+                            <form action="{{ route('cart.add', ['id' => $products->id]) }}" method="POST">
+                                @csrf
                                 <button type="submit" class="btn btn-cart">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Add to Cart
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
                                 </button>
                             </form>
-                        </div> --}}
+                        </div>
                         <h4>Share:</h4>
                         <ul class="social-share">
                             <li>

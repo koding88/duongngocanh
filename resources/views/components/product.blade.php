@@ -8,9 +8,11 @@
         </h3>
         <p class="category">{{ $products->category->name }}</p>
         <span class="price">{{ $products->price }}$</span>
-        <a href="#!" class="btn btn-cart">
-            <i class="fas fa-shopping-cart"></i>
-            Add to Cart
-        </a>
+        <form action="{{ route('cart.add', ['id' => $products->id]) }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-cart">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </form>
     </div>
 </div>

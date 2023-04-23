@@ -14,9 +14,19 @@ class Cart extends Model
         'product_id',
         'quantity',
         'price',
+        'subtotal'
     ];
-public function product()
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+    public function getSubtotalAttribute()
+    {
+        return $this->price * $this->quantity;
     }
 }

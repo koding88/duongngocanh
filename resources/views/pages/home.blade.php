@@ -72,28 +72,31 @@
                     <div class="body">
                         @include('components.subheading', ['our' => 'Our'], ['subheading' => 'Product'])
                     </div>
-                </div>
-                <div class="product-list">
-                    {{-- Product item --}}
-                    @for ($i = 0; $i < 3; $i++)
-                        <div class="item">
-                            <a href="product/detail/{{ $products[$i]->id }}">
-                                <img src="{{ asset('images/' . $products[$i]->image_path) }}" alt="product" class="thumb">
-                            </a>
-                            <div class="info">
-                                <h3 class="title">
-                                    <a href="product/detail/{{ $products[$i]->id }}">{{ $products[$i]->name }}</a>
-                                </h3>
-                                <p class="category">{{ $products[$i]->category->name }}</p>
-                                <span class="price">{{ $products[$i]->price }}$</span>
-                                <a href="#!" class="btn btn-cart">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Add to Cart
+                </div>   
+                    <div class="product-list">
+                        {{-- Product item --}}
+                        @for ($i = 0; $i < 3; $i++)
+                            <div class="item">
+                                <a href="product/detail/{{ $products[$i]->id }}">
+                                    <img src="{{ asset('images/' . $products[$i]->image_path) }}" alt="product"
+                                        class="thumb">
                                 </a>
+                                <div class="info">
+                                    <h3 class="title">
+                                        <a href="product/detail/{{ $products[$i]->id }}">{{ $products[$i]->name }}</a>
+                                    </h3>
+                                    <p class="category">{{ $products[$i]->category->name }}</p>
+                                    <span class="price">{{ $products[$i]->price }}$</span>
+                                    <form action="{{ route('cart.add', ['id' => $products[$i]->id]) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-cart">
+                                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    @endfor
-                </div>
+                        @endfor
+                    </div>
             </div>
         </div>
 
