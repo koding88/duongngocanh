@@ -1,5 +1,4 @@
-@extends('layouts.home')
-
+@extends('layouts/home')
 @section('content')
     <main>
         <!-- Hero-about -->
@@ -8,7 +7,6 @@
             ['desc' => 'EXQUISITE & LUXURY'],
             ['heading' => 'Check Out Product']
         )
-
         <!-- Checkout -->
         <div class="checkout">
             <div class="main-content">
@@ -20,29 +18,28 @@
                                 Delivery address
                             </h4>
                         </div>
-                        <form action="" method="post" class="checkout-form">
+                        <form action="{{url ('place-order') }}" method="POST" class="checkout-form" enctype="multipart/form-data">
+                            @csrf
                             <p>
-                                <input type="text" name="name" placeholder="Name">
+                                <input type="text" name="fullname" placeholder="Name" required>
                             </p>
                             <p>
-                                <input type="text" name="email" placeholder="Email">
+                                <input type="text" name="email" placeholder="Email" required>
                             </p>
                             <p>
-                                <input type="text" name="address" placeholder="Address">
+                                <input type="text" name="address" placeholder="Address" required>
                             </p>
                             <p>
-                                <input type="text" name="phone" placeholder="Phone">
+                                <input type="text" name="phone" placeholder="Phone" required>
                             </p>
                             <p>
-                                <textarea name="description" cols="30" rows="10" placeholder="Say Something"></textarea>
+                                <textarea name="note" cols="30" rows="10" placeholder="Say Something" required></textarea>
                             </p>
                             <button type="submit" class="btn btn-cart">Place Order</button>
                         </form>
                     </div>
                     <div class="checkout-oder">
-                        {{-- @foreach (Cart::content() as $item) --}}
-                            
-                        {{-- @endforeach --}}
+                       
                         <table class="order-details">
                             <thead>
                                 <tr>
@@ -55,35 +52,33 @@
                                     <td>Product</td>
                                     <td>Total</td>
                                 </tr>
+                                @if (session('cart'))
+                                @php $total = 0 @endphp
+                                @foreach (session('cart') as $product => $items)
+                                @php $total += $items['price'] * $items['quantity'] @endphp
                                 <tr>
-                                    <td>Strawberry</td>
-                                    <td>$85.00</td>
+                                    <td name="name">{{ $items['name'] }}</td>
+                                    <td class="product-total">
+                                        ${{ $items['subtotal'] }}
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Berry</td>
-                                    <td>$70.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Lemon</td>
-                                    <td>$35.00</td>
-                                </tr>
+                                @endforeach
                             </tbody>
+                            
                             <tbody class="checkout-details">
                                 <tr>
-                                    <td>Subtotal</td>
-                                    <td>$190</td>
-                                </tr>
-                                <tr>
                                     <td>Shipping</td>
-                                    <td>$50</td>
+                                    <td>Freeship</td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>
-                                    <td>$240</td>
+                                    <td>${{$total}}</td>
                                 </tr>
                             </tbody>
                         </table>
+                        
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

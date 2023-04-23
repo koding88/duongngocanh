@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartsController extends Controller
 {
@@ -35,7 +36,7 @@ class CartsController extends Controller
     //     ]);
     // }
 
-    public function addCart( Request $request, $id)
+    public function addCart(Request $request, $id)
     {
         $product = Product::findOrFail($id);
 
@@ -106,6 +107,13 @@ class CartsController extends Controller
         }
 
         return redirect()->back()->with('error', 'Product not found in cart!');
+    }
+
+    public function checkout()
+    {
+        $cart = session()->get('cart');
+        $user = Auth::user();
+        return view('pages.checkout', compact('cart', 'user'));
     }
 
 }

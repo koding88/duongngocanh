@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\CheckoutController;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\User\CartsController;
 use Illuminate\Support\Facades\Auth;
@@ -47,9 +47,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartsController::class, 'cart'])->name('cart');
     Route::post('/cart/add/{id}', [CartsController::class, 'addCart'])->name('cart.add');
     Route::delete('/cart/{id}', [CartsController::class, 'destroy'])->name('cart.remove');
+    Route::post('/checkout', [CartsController::class, 'checkout'])->name('cart.checkout');
+
+    // Route::resource('/checkout', CheckoutController::class);
+    Route::post('/place-order', 'App\Http\Controllers\User\CheckoutController@placeorder');
 
 
-    Route::get('/checkout', 'App\Http\Controllers\User\CheckoutController@index')->name('checkout.index');
+
 });
 
 

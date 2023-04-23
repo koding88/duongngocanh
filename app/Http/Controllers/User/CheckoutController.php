@@ -5,77 +5,40 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
+use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('pages.checkout');
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function placeorder(Request $request)
     {
-       $request -> validate([
-        'fullname'=> 'required',
-        'email'=> 'required',
-        'address'=>'required',
-        'phone'=>'required',
-        'note'=>'required'
-       ]);
-       //Create the order
-       $order = new Order();
-       $order->fullname = $request->input('fullname');
-       $order->email = $request->input('email');
-       $order->address = $request->input('address');
-       $order->phone = $request->input('phone');
-       $order->note = $request->input('note');
-       $order->save();
+        $order = Order::create([
+            'user_id' => auth()->id(),
+            'fullname' => $request->input('fullname'),
+            'email' => $request->input('email'),
+            'address' => $request->input('address'),
+            'phone' => $request->input('phone'),
+            'note' => $request->input('note'),
+        ]);
 
-       //create order detail
-       foreach ($request->input('products') as $product)
-       {
-        $detail = new OrderDetail();
-        $detail->order_id=$order->id;
-        $detail->order_id=$order->product;
-        $detail->product_id=$product['id'];
-        $detail->quantity=$order->id;
-        $detail->order_id=$order->id;
-        $detail->order_id=$order->id;
         
-       }
+        $cart = session()->get('cart');
 
+        foreach ($cart as $id => $item) {
+            $product = Product::findOrFail((int)$id);
+            OrderDetail::create([
+                'order_id' => $order->id,
+                'product_id' => (int)$id,
+                'quantity' => $item['quantity'],
+                'price' => $item['price'],
+            ]);
+        }        
 
-    }
+        session()->forget('cart');
 
-    
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->back()->with('success', 'Order placed successfully');
     }
 }

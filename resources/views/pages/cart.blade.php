@@ -66,6 +66,7 @@
                                         </form>
                                         </tr>
                                 </tbody>
+                                
                                 @endforeach
                             </table>
                             <div class="total-section">
@@ -92,7 +93,11 @@
                                     </tbody>
                                 </table>
                                 <div class="cart-buttons">
-                                    <a href="{{ url('checkout') }}" class="btn btn-cart">Check Out</a>
+                                    {{-- <a href="{{ url('checkout') }}" class="btn btn-cart">Check Out</a> --}}
+                                    <form action="{{ route('cart.checkout') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-cart">Checkout</button>
+                                    </form>
                                 </div>
                             </div>
 
