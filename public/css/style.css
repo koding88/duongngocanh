@@ -57,7 +57,9 @@ a {
     background-color: var(--primary-color);
     color: #fff;
     padding: 10px 20px;
+    border: none;
     border-radius: 999px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -377,7 +379,7 @@ a {
 
 /* Team */
 .team {
-    margin: 150px 0;
+    margin-top: 150px;
 }
 
 .team .body {
@@ -849,7 +851,8 @@ a {
 
 /* Founder */
 .founder {
-    padding: 150px;
+    padding-top: 80px;
+    padding-bottom: 150px;
 }
 
 .founder-list .founder-item {
@@ -1281,6 +1284,16 @@ tr.table-head-row th {
     padding: 20px 0;
     color: #051922;
     vertical-align: middle;
+}
+
+.cart-table tbody tr td form button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.cart-table tbody tr td form button:hover{
+    opacity: 0.5;
 }
 
 .cart input[type="number"] {

@@ -4,11 +4,8 @@
             <div class="founder-list autoplay">
                 <div class="founder-item">
                     <div class="founder-avatar">
-                        <img
-                            src="https://randomuser.me/api/portraits/men/32.jpg"
-                            alt=""
-                            class="avatar"
-                        />
+                        <img loading="lazy" src="https://randomuser.me/api/portraits/men/32.jpg" alt=""
+                            class="avatar" />
                     </div>
                     <div class="founder-info">
                         <h3 class="founder-name">
@@ -30,11 +27,8 @@
 
                 <div class="founder-item">
                     <div class="founder-avatar">
-                        <img
-                            src="https://randomuser.me/api/portraits/men/97.jpg"
-                            alt=""
-                            class="avatar"
-                        />
+                        <img loading="lazy" src="https://randomuser.me/api/portraits/men/97.jpg" alt=""
+                            class="avatar" />
                     </div>
                     <div class="founder-info">
                         <h3 class="founder-name">
@@ -56,11 +50,9 @@
 
                 <div class="founder-item">
                     <div class="founder-avatar">
-                        <img
+                        <img loading="lazy"
                             src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e"
-                            alt=""
-                            class="avatar"
-                        />
+                            alt="" class="avatar" />
                     </div>
                     <div class="founder-info">
                         <h3 class="founder-name">

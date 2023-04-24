@@ -36,7 +36,7 @@
                                             <th scope="row">{{ $product->id }}</th>
                                             <th>
                                                 <img src="{{ asset('images/' . $product->image_path) }}" alt=""
-                                                    width="50px" height="50px" style="object-fit: cover">
+                                                    width="50px" height="50px" style="object-fit: cover" loading="lazy">
                                             </th>
                                             <th>{{ $product->name }}</th>
                                             <th>{{ $product->category->name }}</th>

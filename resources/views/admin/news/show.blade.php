@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <strong>Image:</strong>
                                 <img src="{{ asset('images/' . $news->image_path) }}" alt="" height="250px"
-                                    style="object-fit: cover">
+                                    style="object-fit: cover" loading="lazy">
                             </div>
                         </div>
                         <div class="row">

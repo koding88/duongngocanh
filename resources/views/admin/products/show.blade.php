@@ -18,11 +18,12 @@
 
                         <div class="product-detail">
                             <div class="product-img">
-                                <img src="{{ asset('images/' . $products->image_path) }}">
+                                <img loading="lazy" src="{{ asset('images/' . $products->image_path) }}">
                             </div>
                             <div class="product-info">
                                 <h3 class="title">
-                                    <strong>Name: </strong> {{ $products->name }}</h3>
+                                    <strong>Name: </strong> {{ $products->name }}
+                                </h3>
                                 <p class="category">
                                     <strong>Category: </strong> {{ $products->category->name }}
                                 </p>

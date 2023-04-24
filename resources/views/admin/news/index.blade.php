@@ -31,10 +31,12 @@
                                             <th style="width: 1%" scope="row">{{ $new->id }}</th>
                                             <td style="width: 20%">
                                                 <img src="{{ asset('images/' . $new->image_path) }}" alt=""
-                                                    height="50px" style="object-fit: cover">
+                                                    height="50px" style="object-fit: cover" loading="lazy">
                                             </td>
                                             <td style="width: 20%">{{ $new->title }}</td>
-                                            <td><p class="clip-content">{{ $new->content }}</p></td>
+                                            <td>
+                                                <p class="clip-content">{{ $new->content }}</p>
+                                            </td>
                                             <td class="custom-flex">
                                                 <a href="news/{{ $new->id }}">
                                                     <button class="btn btn-info btn-sm">Show</button>

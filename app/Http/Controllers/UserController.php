@@ -14,23 +14,23 @@ class UserController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $category = Category::all();
-        $news = News::all();
+        $products = Product::lazy();
+        $category = Category::lazy();
+        $news = News::lazy();
         return view('pages.home', compact('products', 'category', 'news'));
     }
 
     public function news()
     {
-        $newss = News::all();
+        $newss = News::lazy();
         return view('pages.news', compact('newss'));
     }
 
     public function shop(Request $request)
     {
-        $category = Category::all();
+        $category = Category::lazy();
         $categoryId = $request->input('category_id');
-        $productss = $categoryId ? Product::where('category_id', $categoryId)->get() : Product::all();
+        $productss = $categoryId ? Product::where('category_id', $categoryId)->get() : Product::lazy();
         return view('pages.shop', compact('productss', 'category', 'request'));
     }
 
@@ -50,26 +50,17 @@ class UserController extends Controller
         //
     }
 
-    // public function show(string $id)
-    // {
-    //     $products = Product::find($id);
-    //     $category = Category::find($products->category_id);
-    //     $products->category = $category;
-    //     $news = News::find($id);
-    //     return view('pages.home',compact('products','news'));
-    // }
-
     public function showNew(string $id)
     {
         $news = News::findOrFail($id);
-        $items = News::all();
+        $items = News::lazy();
         return view('pages.detail_news', compact('news', 'items'));
     }
 
     public function showProduct(string $id)
     {
         $products = Product::findOrFail($id);
-        $items = Product::all();
+        $items = Product::lazy();
         $category = Category::findOrFail($products->category_id);
         return view('pages.detail_product', compact('products', 'items'));
     }

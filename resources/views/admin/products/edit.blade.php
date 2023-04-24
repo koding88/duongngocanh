@@ -22,7 +22,7 @@
                             <div class="form-group">
                                 <label for="image">Image</label>
                                 <img src="{{ asset('images/' . $products->image_path) }}" alt="" width="50px"
-                                    height="50px" style="object-fit: cover">
+                                    height="50px" style="object-fit: cover" loading="lazy">
                                 <input type="file" name="image" class="form-control">
                             </div>
                             <div class="form-group">

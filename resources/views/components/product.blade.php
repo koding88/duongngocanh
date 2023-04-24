@@ -1,6 +1,6 @@
 <div class="item">
     <a href="product/detail/{{ $products->id }}">
-        <img src="{{ asset('images/' . $products->image_path) }}" alt="product" class="thumb">
+        <img src="{{ asset('images/' . $products->image_path) }}" alt="product" loading="lazy" class="thumb">
     </a>
     <div class="info">
         <h3 class="title">

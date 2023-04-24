@@ -1,7 +1,7 @@
 <div class="news-item">
     <div class="img-news">
         <a href="new/detail/{{ $news->id }}">
-            <img src="{{ asset('images/' . $news->image_path) }}" alt="" class="thumb">
+            <img src="{{ asset('images/' . $news->image_path) }}" alt="" loading="lazy" class="thumb">
         </a>
     </div>
     <div class="news-info">

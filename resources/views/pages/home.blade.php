@@ -72,22 +72,23 @@
                     <div class="body">
                         @include('components.subheading', ['our' => 'Our'], ['subheading' => 'Product'])
                     </div>
-                </div>   
-                    <div class="product-list">
-                        {{-- Product item --}}
-                        @for ($i = 0; $i < 3; $i++)
+                </div>
+                <div class="product-list">
+                    {{-- Product item --}}
+                    @if ($products->count() > 0)
+                        @foreach ($products->take(3)->all() as $product)
                             <div class="item">
-                                <a href="product/detail/{{ $products[$i]->id }}">
-                                    <img src="{{ asset('images/' . $products[$i]->image_path) }}" alt="product"
-                                        class="thumb">
+                                <a href="product/detail/{{ $product->id }}">
+                                    <img src="{{ asset('images/' . $product->image_path) }}" alt="product" class="thumb"
+                                        loading="lazy">
                                 </a>
                                 <div class="info">
                                     <h3 class="title">
-                                        <a href="product/detail/{{ $products[$i]->id }}">{{ $products[$i]->name }}</a>
+                                        <a href="product/detail/{{ $product->id }}">{{ $product->name }}</a>
                                     </h3>
-                                    <p class="category">{{ $products[$i]->category->name }}</p>
-                                    <span class="price">{{ $products[$i]->price }}$</span>
-                                    <form action="{{ route('cart.add', ['id' => $products[$i]->id]) }}" method="POST">
+                                    <p class="category">{{ $product->category->name }}</p>
+                                    <span class="price">{{ $product->price }}$</span>
+                                    <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-cart">
                                             <i class="fas fa-shopping-cart"></i> Add to Cart
@@ -95,8 +96,10 @@
                                     </form>
                                 </div>
                             </div>
-                        @endfor
-                    </div>
+                        @endforeach
+                    @endif
+
+                </div>
             </div>
         </div>
 
@@ -107,7 +110,7 @@
                     <div class="row-left">
                         <div class="img-block">
                             <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                                alt="chair" class="thumb" />
+                                alt="chair" loading="lazy" class="thumb" />
                             <div class="img-price">
                                 <div class="inner-price">
                                     <span class="price">
@@ -216,37 +219,39 @@
                 <div class="row">
                     <div class="news-list">
                         {{-- News-item --}}
-                        @for ($i = 0; $i < 3; $i++)
-                            <div class="news-item">
-                                <div class="img-news">
-                                    <a href="new/detail/{{ $news[$i]->id }}">
-                                        <img src="{{ asset('images/' . $news[$i]->image_path) }}" alt=""
-                                            class="thumb">
-                                    </a>
-                                </div>
-                                <div class="news-info">
-                                    <h3 class="title line-clamp line-2">
-                                        <a href="new/detail/{{ $news[$i]->id }}">
-                                            {{ $news[$i]->title }}
+                        @if ($news->count() > 0)
+                            @foreach ($news->take(3)->all() as $news)
+                                <div class="news-item">
+                                    <div class="img-news">
+                                        <a href="new/detail/{{ $new[$i]->id }}">
+                                            <img src="{{ asset('images/' . $new[$i]->image_path) }}" alt=""
+                                                loading="lazy" class="thumb">
                                         </a>
-                                    </h3>
-                                    <p class="blog-meta">
-                                        <span class="author">
-                                            <i class="fas fa-user"></i>
-                                            Admin</span>
-                                        <span class="date">
-                                            <i class="fas fa-calendar"></i>
-                                            27 December, 2019</span>
-                                    </p>
-                                    <p class="desc line-clamp">
-                                        {{ $news[$i]->content }}
-                                    </p>
-                                    <a href="" class="btn-news">read more
-                                        <i class="fas fa-angle-right"></i>
-                                    </a>
+                                    </div>
+                                    <div class="news-info">
+                                        <h3 class="title line-clamp line-2">
+                                            <a href="new/detail/{{ $new[$i]->id }}">
+                                                {{ $new[$i]->title }}
+                                            </a>
+                                        </h3>
+                                        <p class="blog-meta">
+                                            <span class="author">
+                                                <i class="fas fa-user"></i>
+                                                Admin</span>
+                                            <span class="date">
+                                                <i class="fas fa-calendar"></i>
+                                                27 December, 2019</span>
+                                        </p>
+                                        <p class="desc line-clamp">
+                                            {{ $new[$i]->content }}
+                                        </p>
+                                        <a href="" class="btn-news">read more
+                                            <i class="fas fa-angle-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        @endfor
+                            @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="row">

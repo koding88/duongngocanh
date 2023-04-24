@@ -103,7 +103,7 @@
                     <div class="team-list">
                         <div class="team-item">
                             <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-                                alt="" class="thumb" />
+                                alt="" loading="lazy" class="thumb" />
                             <div class="info">
                                 <h4 class="team-name">Jimmy Doe</h4>
                                 <span class="role">Manager</span>
@@ -129,7 +129,7 @@
 
                         <div class="team-item">
                             <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                                class="thumb" />
+                                loading="lazy" class="thumb" />
                             <div class="info">
                                 <h4 class="team-name">Simon Joe</h4>
                                 <span class="role">Manager</span>
@@ -155,7 +155,7 @@
 
                         <div class="team-item">
                             <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80"
-                                class="thumb" />
+                                loading="lazy" class="thumb" />
                             <div class="info">
                                 <h4 class="team-name">Marry Doe</h4>
                                 <span class="role">Manager</span>
@@ -189,7 +189,8 @@
                 <div class="founder-list autoplay">
                     <div class="founder-item">
                         <div class="founder-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="avatar" />
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" loading="lazy"
+                                class="avatar" />
                         </div>
                         <div class="founder-info">
                             <h3 class="founder-name">
@@ -211,7 +212,8 @@
 
                     <div class="founder-item">
                         <div class="founder-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/97.jpg" alt="" class="avatar" />
+                            <img src="https://randomuser.me/api/portraits/men/97.jpg" alt="" loading="lazy"
+                                class="avatar" />
                         </div>
                         <div class="founder-info">
                             <h3 class="founder-name">
@@ -234,7 +236,7 @@
                     <div class="founder-item">
                         <div class="founder-avatar">
                             <img src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e"
-                                alt="" class="avatar" />
+                                alt="" loading="lazy" class="avatar" />
                         </div>
                         <div class="founder-info">
                             <h3 class="founder-name">

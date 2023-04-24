@@ -11,7 +11,7 @@
                 <div class="body">
                     <div class="news-article">
                         <div class="img-news">
-                            <img src="{{ asset('images/' . $news->image_path) }}" alt="" class="thumb">
+                            <img src="{{ asset('images/' . $news->image_path) }}" loading="lazy" alt="" class="thumb">
                         </div>
                         <p class="blog-meta">
                             <span class="author">

@@ -12,6 +12,39 @@ window.addEventListener("scroll", () => {
     }
 });
 
+// Toast message
+$(document).ready(function () {
+    $("form").submit(function (event) {
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+            url: $(this).attr("action"),
+            type: $(this).attr("method"),
+            data: form_data,
+            success: function (response) {
+                Toastify({
+                    text: "Add product successfully",
+                    duration: 1500,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "#4CAF50",
+                    stopOnFocus: true,
+                }).showToast();
+            },
+            error: function (xhr, status, error) {
+                Toastify({
+                    text: "Error adding product to cart",
+                    duration: 1500,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "#F44336",
+                    stopOnFocus: true,
+                }).showToast();
+            },
+        });
+    });
+});
+
 // Slick slider
 $(".autoplay").slick({
     slidesToShow: 1,

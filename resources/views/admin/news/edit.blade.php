@@ -21,7 +21,7 @@
                                 <div class="form-group">
                                     <strong>Image:</strong>
                                     <img src="{{ asset('images/' . $news->image_path) }}" alt="" height="50px"
-                                        style="object-fit: cover">
+                                        style="object-fit: cover" loading="lazy">
                                     <input type="file" name="image" class="form-control">
                                 </div>
                             </div>

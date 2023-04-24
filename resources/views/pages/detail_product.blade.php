@@ -10,7 +10,7 @@
             <div class="main-content">
                 <div class="body">
                     <div class="product-img">
-                        <img src="{{ asset('images/' . $products->image_path) }}" alt="product" class="thumb">
+                        <img src="{{ asset('images/' . $products->image_path) }}" loading="lazy" alt="product" class="thumb">
                     </div>
                     <div class="product-info">
                         <h3 class="title">{{ $products->name }}</h3>
@@ -77,7 +77,7 @@
                     @for ($i = 0; $i < 3; $i++)
                         <div class="item">
                             <a href="{{ url('/product/detail/' . $items[$i]->id) }}">
-                                <img src="{{ asset('images/' . $items[$i]->image_path) }}" alt="product" class="thumb">
+                                <img src="{{ asset('images/' . $items[$i]->image_path) }}" loading="lazy" alt="product" class="thumb">
                             </a>
                             <div class="info">
                                 <h3 class="title">
