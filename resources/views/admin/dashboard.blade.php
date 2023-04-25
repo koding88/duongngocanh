@@ -90,11 +90,10 @@
                             <div class="col-md-6">
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Total Orders
-                                        <h2>0</h2>
-                                        {{-- <h2>{{ $totalNews }}</h2> --}}
+                                        <h2>{{ $totalOrders }}</h2>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{ url('admin/orders') }}">View
+                                        <a class="small text-white stretched-link" href="{{ url('admin/order') }}">View
                                             Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>

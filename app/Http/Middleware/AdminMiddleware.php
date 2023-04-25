@@ -22,7 +22,7 @@ class AdminMiddleware
         }
         else
         {   
-            return redirect('/index')->with('status', 'You are not allowed to Admin Dashboard!');
+            return redirect('pages.home')->with('status', 'You are not allowed to Admin Dashboard!');
         }
     }
 }

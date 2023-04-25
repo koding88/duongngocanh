@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Foundation\Auth\User;
-use Illuminate\Support\Facades\DB;
 
 
 class DashboardController extends Controller
@@ -19,9 +19,10 @@ class DashboardController extends Controller
         $totalProducts = Product::count();
         $totalCategory = Category::count();
         $totalNews = News::count();
+        $totalOrders = Order::count();
 
         return view('admin.dashboard', ['totalUser' => $totalUser, 'totalAdmin' => $totalAdmin, 
-        'totalProducts' => $totalProducts, 'totalCategory' => $totalCategory, 'totalNews' => $totalNews]);
+        'totalProducts' => $totalProducts, 'totalCategory' => $totalCategory, 'totalNews' => $totalNews, 'totalOrders' => $totalOrders]);
 
     }
 }
