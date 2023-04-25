@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('note');
+            $table->string('product_name');
+            $table->decimal('total', 10, 2);
             $table->timestamps();
         });
     }

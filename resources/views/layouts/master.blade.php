@@ -55,8 +55,8 @@
                             <p>Categories</p>
                         </a>
                     </li>
-                    <li class="{{ '' == request()->path() ? 'active' : '' }}">
-                        <a href="">
+                    <li class="{{ 'admin/order' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ url('admin/order') }}">
                             <i class="now-ui-icons shopping_delivery-fast"></i>
                             <p>Orders</p>
                         </a>

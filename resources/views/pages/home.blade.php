@@ -75,7 +75,8 @@
                 </div>
                 <div class="product-list">
                     {{-- Product item --}}
-                    @if ($products->count() > 0)
+                    {{-- @if (collect($products)->count() > 0)
+
                         @foreach ($products->take(3)->all() as $product)
                             <div class="item">
                                 <a href="product/detail/{{ $product->id }}">
@@ -97,7 +98,7 @@
                                 </div>
                             </div>
                         @endforeach
-                    @endif
+                    @endif --}}
 
                 </div>
             </div>

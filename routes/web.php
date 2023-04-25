@@ -37,26 +37,22 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::resource('admin/categories', CategoryController::class);
 });
 
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-
 Route::middleware(['auth'])->group(function () {
-   
+    // Cart
     Route::resource('/cart', CartsController::class);
 
-
     Route::get('/cart', [CartsController::class, 'cart'])->name('cart');
+
     Route::post('/cart/add/{id}', [CartsController::class, 'addCart'])->name('cart.add');
+
     Route::delete('/cart/{id}', [CartsController::class, 'destroy'])->name('cart.remove');
+    
     Route::post('/checkout', [CartsController::class, 'checkout'])->name('cart.checkout');
-
-    // Route::resource('/checkout', CheckoutController::class);
-    Route::post('/place-order', 'App\Http\Controllers\User\CheckoutController@placeorder');
-
-
-
+    // //Checkout
+    // Route::resource('/checkout', [CheckoutController::class]);
+    Route::post('/place-order', [CheckoutController::class, 'placeorder'])->name('placeorder');
+    Route::get('/place-order', [CheckoutController::class, 'index'])->name('index');
 });
-
-
 
 Route::get('/', [UserController::class, 'index']);
 
