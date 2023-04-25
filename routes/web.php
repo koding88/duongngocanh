@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
@@ -35,6 +36,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     // Categories
     Route::resource('admin/categories', CategoryController::class);
+
+    //Order
+    Route::resource('admin/order', OrderController::class);
+
 });
 
 Route::middleware(['auth'])->group(function () {
