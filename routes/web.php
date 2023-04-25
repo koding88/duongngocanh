@@ -50,8 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout', [CartsController::class, 'checkout'])->name('cart.checkout');
     // //Checkout
     // Route::resource('/checkout', [CheckoutController::class]);
-    Route::post('/place-order', [CheckoutController::class, 'placeorder'])->name('placeorder');
-    Route::get('/place-order', [CheckoutController::class, 'index'])->name('index');
+    Route::post('/cart', [CheckoutController::class, 'placeorder'])->name('placeorder');
+
 });
 
 Route::get('/', [UserController::class, 'index']);

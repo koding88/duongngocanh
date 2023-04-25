@@ -5,8 +5,12 @@
         <!-- Hero-about -->
         @include('components.heading', ['desc' => 'EXQUISITE & LUXURY'], ['heading' => 'Cart'])
 
+        {{-- @if (session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif --}}
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
+            {{ session()->forget('success') }}
         @endif
 
         @if (session('error'))

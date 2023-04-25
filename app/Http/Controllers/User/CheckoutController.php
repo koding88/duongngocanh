@@ -12,7 +12,7 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        //
+        return view('pages.cart');
     }
     public function placeorder(Request $request)
     {
@@ -51,6 +51,7 @@ class CheckoutController extends Controller
             'total' => $total,
         ]);
         session()->forget('cart');
-        return view('pages.home', compact('products', 'news'))->with('success', 'Order placed successfully');
+        return view('pages.cart')->with('success', 'Order placed successfully')->with('cart_route', route('cart'));
+
     }
 }

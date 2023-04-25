@@ -75,7 +75,7 @@
                 </div>
                 <div class="product-list">
                     {{-- Product item --}}
-                    {{-- @if (collect($products)->count() > 0)
+                    @if (collect($products)->count() > 0)
 
                         @foreach ($products->take(3)->all() as $product)
                             <div class="item">
@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                         @endforeach
-                    @endif --}}
+                    @endif
 
                 </div>
             </div>

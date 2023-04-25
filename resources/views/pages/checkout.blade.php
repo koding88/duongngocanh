@@ -18,7 +18,7 @@
                                 Delivery address
                             </h4>
                         </div>
-                        <form action="{{url ('place-order') }}" method="POST" class="checkout-form" enctype="multipart/form-data">
+                        <form action="{{url ('cart') }}" method="POST" class="checkout-form" enctype="multipart/form-data">
                             @csrf
                             <p>
                                 <input type="text" name="fullname" placeholder="Name" required>
