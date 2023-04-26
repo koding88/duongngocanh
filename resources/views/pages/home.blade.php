@@ -76,7 +76,6 @@
                 <div class="product-list">
                     {{-- Product item --}}
                     @if (collect($products)->count() > 0)
-
                         @foreach ($products->take(3)->all() as $product)
                             <div class="item">
                                 <a href="product/detail/{{ $product->id }}">
@@ -89,7 +88,8 @@
                                     </h3>
                                     <p class="category">{{ $product->category->name }}</p>
                                     <span class="price">{{ $product->price }}$</span>
-                                    <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST">
+                                    <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST"
+                                        class="toast__product">
                                         @csrf
                                         <button type="submit" class="btn btn-cart">
                                             <i class="fas fa-shopping-cart"></i> Add to Cart

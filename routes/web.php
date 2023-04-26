@@ -39,7 +39,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     //Order
     Route::resource('admin/order', OrderController::class);
-
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -51,12 +50,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/cart/add/{id}', [CartsController::class, 'addCart'])->name('cart.add');
 
     Route::delete('/cart/{id}', [CartsController::class, 'destroy'])->name('cart.remove');
-    
+
     Route::post('/checkout', [CartsController::class, 'checkout'])->name('cart.checkout');
     // //Checkout
     // Route::resource('/checkout', [CheckoutController::class]);
     Route::post('/cart', [CheckoutController::class, 'placeorder'])->name('placeorder');
-
 });
 
 Route::get('/', [UserController::class, 'index']);
@@ -68,6 +66,8 @@ Route::get('/shop', [UserController::class, 'shop']);
 Route::get('/product/detail/{id}', [UserController::class, 'showProduct']);
 
 Route::get('/new/detail/{id}', [UserController::class, 'showNew']);
+
+Route::get('search', [UserController::class, 'search']);
 
 Route::view('/about', 'pages.about');
 Route::view('/contact', 'pages.contact');

@@ -60,7 +60,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     {{-- Toastify JS --}}
-    {{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script> --}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- Script JS -->
     <script src="{{ asset('js/script.js') }}"></script>

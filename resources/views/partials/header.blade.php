@@ -28,35 +28,45 @@
                 </nav>
 
                 <!-- Action -->
-                <div class="action">
-                    <a href="search" class="icon">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                    <a href="cart" class="icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </a>
-                    @if (Auth::check())
-                        <a href="{{ route('logout') }}" class="icon"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="fa-solid fa-sign-in"></i>
+                <ul class="action">
+                    <li class="{{ request()->is('search') ? 'active' : '' }}">
+                        <a href="{{ url('search') }}" class="icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </a>
+                    </li>
+                    <li class="{{ request()->is('cart') ? 'active' : '' }}">
+                        <a href="{{ url('cart') }}" class="icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </li>
+                    @if (Auth::check())
+                        <li>
+                            <a href="{{ route('logout') }}" class="icon"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa-solid fa-sign-in"></i>
+                            </a>
+                        </li>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                     @else
                         @if (Route::has('login'))
-                            <a href="{{ route('login') }}" class="icon">
-                                <i class="fa-solid fa-user-tie"></i>
-                            </a>
+                            <li>
+                                <a href="{{ route('login') }}" class="icon">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </a>
+                            </li>
                         @endif
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="icon">
-                                <i class="fa-solid fa-user-plus"></i>
-                            </a>
+                            <li>
+                                <a href="{{ route('register') }}" class="icon">
+                                    <i class="fa-solid fa-user-plus"></i>
+                                </a>
+                            </li>
                         @endif
                     @endif
-                </div>
+                </ul>
 
             </div>
         </div>

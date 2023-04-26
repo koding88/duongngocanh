@@ -164,8 +164,49 @@ a {
     color: var(--primary-color);
 }
 
-/* Search */
+.action .active a{
+    color: var(--primary-color) !important;
+}
 
+/* Search */
+.search{
+    margin: 80px;
+}
+
+.search-form{
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+.search-form .search-input{
+    padding: 22px;
+    min-width: 600px;
+    border-radius: 5px;
+    border: 1px solid #b3adad;
+}
+
+.search-form .search-button{
+    position: relative;
+    left: -50px;
+    top: 3px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.search-form .search-button i{
+    font-size: 2rem;
+}
+
+.search-form .search-button:hover{
+    opacity: 0.5;
+}
+
+.search .result .product-list{
+    overflow: initial;
+    flex-wrap: wrap;
+}
 
 
 /* Hero */
