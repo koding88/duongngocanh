@@ -208,6 +208,10 @@ a {
     flex-wrap: wrap;
 }
 
+.notfound{
+    text-align: center;
+}
+
 
 /* Hero */
 .hero {
