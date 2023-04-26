@@ -7,15 +7,12 @@
 
         {{-- @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
-        @endif --}}
-        @if (session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
             {{ session()->forget('success') }}
         @endif
 
         @if (session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
-        @endif
+        @endif --}}
 
         @if (session('cart'))
             <!-- Cart -->
@@ -67,10 +64,10 @@
                                             </td>
                                         </form>
                                     </tr>
+                                @endforeach
                             </tbody>
-        @endforeach
-        </table>
-        <div class="total-section">
+                        </table>
+            <div class="total-section">
             <table class="total-table">
                 <thead class="total-table-head">
                     <tr class="table-total-row">
@@ -94,7 +91,7 @@
                 </tbody>
             </table>
             <div class="cart-buttons">
-                {{-- <a href="{{ url('checkout') }}" class="btn btn-cart">Check Out</a> --}}
+               
                 <form action="{{ route('cart.checkout') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-cart">Checkout</button>
@@ -105,6 +102,10 @@
         </div>
         </div>
         </div>
+        @else
+            <div class="img-block" style="text-align: center">
+                <img src="https://www.adasglobal.com/img/empty-cart.png" alt="">
+            </div>
         @endif
         {{-- Brands --}}
         @include('components.brands')

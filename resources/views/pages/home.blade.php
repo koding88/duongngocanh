@@ -99,7 +99,6 @@
                             </div>
                         @endforeach
                     @endif
-
                 </div>
             </div>
         </div>
@@ -224,15 +223,15 @@
                             @foreach ($news->take(3)->all() as $news)
                                 <div class="news-item">
                                     <div class="img-news">
-                                        <a href="new/detail/{{ $new[$i]->id }}">
-                                            <img src="{{ asset('images/' . $new[$i]->image_path) }}" alt=""
+                                        <a href="new/detail/{{ $news->id }}">
+                                            <img src="{{ asset('images/' . $news->image_path) }}" alt=""
                                                 loading="lazy" class="thumb">
                                         </a>
                                     </div>
                                     <div class="news-info">
                                         <h3 class="title line-clamp line-2">
-                                            <a href="new/detail/{{ $new[$i]->id }}">
-                                                {{ $new[$i]->title }}
+                                            <a href="new/detail/{{ $news->id }}">
+                                                {{ $news->title }}
                                             </a>
                                         </h3>
                                         <p class="blog-meta">
@@ -244,7 +243,7 @@
                                                 27 December, 2019</span>
                                         </p>
                                         <p class="desc line-clamp">
-                                            {{ $new[$i]->content }}
+                                            {{ $news->content }}
                                         </p>
                                         <a href="" class="btn-news">read more
                                             <i class="fas fa-angle-right"></i>

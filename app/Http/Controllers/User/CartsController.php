@@ -27,7 +27,7 @@ class CartsController extends Controller
             $request->image->move(public_path('images'), $generatedImageName);
             $product->image_path = $generatedImageName;
         }
-        // Nếu giỏ hàng trống
+        // If cart is empty
         if (!$cart) {
             $cart = [
                 $id => [
@@ -42,14 +42,14 @@ class CartsController extends Controller
             session()->put('cart', $cart);
             return redirect()->back()->with('success', 'Product added to cart successfully!');
         }
-        // Nếu sản phẩm đã tồn tại trong giỏ hàng, tăng số lượng sản phẩm lên 1
+        // If the product already exists in the cart, increase the number of products by 1
         if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
             $cart[$id]['subtotal'] = $cart[$id]['quantity'] * $cart[$id]['price'];
             session()->put('cart', $cart);
             return redirect()->back()->with('success', 'Product added to cart successfully!');
         }
-        // Nếu sản phẩm chưa có trong giỏ hàng, thêm sản phẩm vào giỏ hàng
+        // If the product is not in the cart, add the product to the cart
         $cart[$id] = [
             "product_id" => $product->id,
             "name" => $product->name,

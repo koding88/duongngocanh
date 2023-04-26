@@ -24,7 +24,7 @@ $(document).ready(function () {
             success: function (response) {
                 Toastify({
                     text: "Add product successfully",
-                    duration: 1500,
+                    duration: 1200,
                     gravity: "top",
                     position: "right",
                     backgroundColor: "#4CAF50",
@@ -34,7 +34,7 @@ $(document).ready(function () {
             error: function (xhr, status, error) {
                 Toastify({
                     text: "Error adding product to cart",
-                    duration: 1500,
+                    duration: 1200,
                     gravity: "top",
                     position: "right",
                     backgroundColor: "#F44336",

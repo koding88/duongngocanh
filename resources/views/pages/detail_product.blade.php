@@ -74,24 +74,30 @@
                 </div>
                 <div class="product-list">
                     {{-- Product item --}}
-                    @for ($i = 0; $i < 3; $i++)
-                        <div class="item">
-                            <a href="{{ url('/product/detail/' . $items[$i]->id) }}">
-                                <img src="{{ asset('images/' . $items[$i]->image_path) }}" loading="lazy" alt="product" class="thumb">
-                            </a>
-                            <div class="info">
-                                <h3 class="title">
-                                    <a href="{{ url('/product/detail/' . $items[$i]->id) }}">{{ $items[$i]->name }}</a>
-                                </h3>
-                                <p class="category">{{ $items[$i]->category->name }}</p>
-                                <span class="price">{{ $items[$i]->price }}$</span>
-                                <a href="#!" class="btn btn-cart">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Add to Cart
+                    @if (collect($products)->count() > 0)
+                        @foreach ($products->take(3)->get() as $product)
+                            <div class="item">
+                                <a href="product/detail/{{ $product->id }}">
+                                    <img src="{{ asset('images/' . $product->image_path) }}" alt="product" class="thumb"
+                                        loading="lazy">
                                 </a>
+                                <div class="info">
+                                    <h3 class="title">
+                                        <a href="product/detail/{{ $product->id }}">{{ $product->name }}</a>
+                                    </h3>
+                                    <p class="category">{{ $product->category->name }}</p>
+                                    <span class="price">{{ $product->price }}$</span>
+                                    <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST"
+                                        class="toast__product">
+                                        @csrf
+                                        <button type="submit" class="btn btn-cart">
+                                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    @endfor
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
