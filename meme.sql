@@ -23,10 +23,3 @@ INSERT INTO `orders` (`id`, `user_id`, `fullname`, `email`, `address`, `phone`, 
 (7, 1, 'Nga', 'user1@gmail.com', 'Ha noi', '0987654321', 'dasda', 'san pham 5, san pham 4', '32.00', '2023-04-25 23:33:47', '2023-04-25 23:33:47'),
 (8, 1, 'chien', 'koding@gmail.com', 'ha tinh', '0987654321', 'das', 'san pham 2', '2.00', '2023-04-25 23:35:28', '2023-04-25 23:35:28');
 
-INSERT INTO `products` (`id`, `name`, `description`, `quantity`, `price`, `created_at`, `updated_at`, `image_path`, `category_id`) VALUES
-(1, 'san pham 1', 'day la san pham 1', 1, 1, '2023-04-25 22:01:46', '2023-04-25 22:01:46', 'image1682485306-san pham 1.jpg', 1),
-(2, 'san pham 2', 'day la san pham 2', 2, 2, '2023-04-25 22:02:03', '2023-04-25 22:02:03', 'image1682485323-san pham 2.jpg', 2),
-(3, 'san pham 3', 'day la san pham 3', 3, 2, '2023-04-25 22:02:21', '2023-04-25 22:02:21', 'image1682485341-san pham 3.jpg', 3),
-(4, 'san pham 4', 'day la san pham 4', 4, 2, '2023-04-25 22:02:43', '2023-04-25 22:02:43', 'image1682485363-san pham 4.jpg', 4),
-(5, 'san pham 5', 'day la san pham 5', 5, 5, '2023-04-25 22:03:09', '2023-04-25 22:03:09', 'image1682485389-san pham 5.jpg', 5);
-

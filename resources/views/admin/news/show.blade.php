@@ -35,6 +35,12 @@
                                     {{ $news->content }}
                                 </div>
                             </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <strong>Author:</strong>
+                                    {{ $news->user->name }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

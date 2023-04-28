@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -34,6 +35,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->user_id);
         $news = News::all();
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -52,6 +54,7 @@ class NewsController extends Controller
         $news = News::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
+            'user_id' => auth()->user()->id,
             'image_path' => $generatedImageName
         ]);
         $news->save();
@@ -64,6 +67,8 @@ class NewsController extends Controller
     public function show(string $id)
     {
         $news = News::find($id);
+        $user = User::find($news->user_id);
+        $news->user = $user;
         return view('admin.news.show')->with('news', $news);;
     }
 

@@ -57,4 +57,8 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::needsRehash($password) ? Hash::make($password) : $password;
     }
 
+    public function news(){
+        return $this->hasMany(News::class);
+    }
+
 }

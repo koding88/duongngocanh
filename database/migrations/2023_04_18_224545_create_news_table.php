@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
 
-            $table->id();           
+            $table->id();    
+            $table->unsignedBigInteger('user_id');       
             $table->string('title');
             $table->text('content');
             $table->string('image_path');

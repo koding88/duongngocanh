@@ -16,10 +16,10 @@
                         <p class="blog-meta">
                             <span class="author">
                                 <i class="fas fa-user"></i>
-                                Admin</span>
+                                {{ $news->user->name }}</span>
                             <span class="date">
                                 <i class="fas fa-calendar"></i>
-                                27 December, 2019</span>
+                                {{ \Carbon\Carbon::parse($news->updated_at)->format('d F, Y') }}</span>
                         </p>
                         <div class="info">
                             <h2>{{ $news->title }}</h2>
